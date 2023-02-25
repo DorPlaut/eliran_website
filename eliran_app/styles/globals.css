@@ -1,0 +1,90 @@
+:root {
+  /* page setting */
+  font-size: 16px;
+  /* vars */
+  --primaryColor: #19a6b0;
+  --primaryColorLight: #6ac7cc;
+  --darkColor: #404042;
+  --blackColor: #131313;
+  --backgroundColor: #f4f4f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Assistant', sans-serif;
+}
+body {
+  background: var(--backgroundColor);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+.main {
+  width: calc(100vw - 5rem);
+  max-width: 1200px;
+  box-shadow: 0 0 30px var(--blackColor);
+}
+header {
+  height: 10rem;
+  position: relative;
+}
+/* .section {
+} */
+/* buttons */
+.btn {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.text-btn {
+  padding: 0.5rem 1rem;
+  background: none;
+  transition: 0.2s;
+}
+.text-btn:hover {
+  background: var(--primaryColorLight);
+}
+.btn-color {
+  padding: 0.5rem 1rem;
+  background: var(--darkColor);
+  color: var(--primaryColorLight);
+  transition: 0.2s;
+}
+.btn-color:hover {
+  background: var(--primaryColorLight);
+  color: var(--blackColor);
+}
+.btn-icon {
+  font-size: 1.5rem;
+  padding: 0.5rem 0.5rem;
+  color: var(--primaryColorLight);
+  transition: 0.2s;
+}
+.btn-icon:hover {
+  color: var(--backgroundColor);
+}
+
+@media screen and (max-width: 800px) {
+  :root {
+    font-size: 10px;
+  }
+  .svg {
+    height: 25rem;
+  }
+  .main {
+    width: 100vw;
+    max-width: 1200px;
+    box-shadow: 0 0 30px var(--blackColor);
+  }
+}
+
+@media screen and (min-width: 2600px) {
+  :root {
+    font-size: 24px;
+  }
+}

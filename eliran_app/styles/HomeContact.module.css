@@ -1,0 +1,68 @@
+.container {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('../public/hero-backgroung.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 2rem;
+  color: var(--backgroundColor);
+  width: 100%;
+}
+.form_container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+  text-align: right;
+}
+.form_container h4 {
+  font-size: 1.6rem;
+}
+.form_container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.form_container li {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  margin: 0rem 1rem;
+}
+.form_container span {
+  margin: 0.2rem;
+}
+.servics ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.servics li {
+  font-size: 1.5rem;
+}
+.icon {
+  font-size: 8rem;
+}
+
+/* media quarrys */
+@media screen and (max-width: 800px) {
+  .form_container {
+    flex-direction: column;
+  }
+  .form_container ul {
+    flex-direction: column;
+  }
+  .form_container li {
+    align-items: center;
+  }
+  .icon {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 2600px) {
+}

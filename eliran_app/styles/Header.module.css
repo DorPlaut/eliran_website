@@ -1,0 +1,68 @@
+/* header */
+
+.shapes {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.lines {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+.svg {
+  height: 30rem;
+}
+.container {
+  display: flex;
+}
+.right {
+  position: absolute;
+  bottom: 0;
+  right: -8rem;
+  rotate: 180deg;
+}
+.filler_right {
+  width: 3rem;
+}
+
+.filler_left {
+  width: 10rem;
+
+  background: var(--darkColor);
+}
+.logo {
+  height: 10rem;
+  padding: 1.5rem;
+  z-index: 1;
+  filter: drop-shadow(2px 2px 0px var(--backgroundColor));
+}
+
+.navbar {
+  position: relative;
+  height: 10rem;
+  margin-right: 0.5;
+}
+.navbar ul {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  list-style: none;
+}
+.navbar li {
+  margin: 0.3rem;
+  white-space: nowrap;
+}
+.navbar button {
+  font-size: 1rem;
+}
+.social {
+  position: absolute;
+  bottom: 0;
+  margin-left: 0.5rem;
+}

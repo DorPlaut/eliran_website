@@ -1,0 +1,35 @@
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('../public/hero-backgroung.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+.about {
+  text-align: right;
+  color: var(--backgroundColor);
+}
+.about p {
+  margin: 0.5rem 0 1rem 0;
+}
+.about h1 {
+  color: var(--primaryColorLight);
+}
+
+.blob {
+  height: 30rem;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about {
+    text-align: center;
+  }
+}

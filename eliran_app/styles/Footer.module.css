@@ -1,0 +1,46 @@
+.container {
+  background: linear-gradient(var(--darkColor), var(--blackColor));
+  color: var(--backgroundColor);
+  text-align: center;
+  padding: 1rem;
+}
+.container span {
+  color: #537577;
+}
+
+.footer {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+}
+.menu {
+  text-align: right;
+  margin: 0.5rem 1rem;
+}
+
+.menu ul {
+  list-style: none;
+  color: var(--primaryColor);
+}
+.menu h3 {
+  text-align: center;
+  padding: 0.2rem 1rem;
+  color: var(--backgroundColor);
+}
+.underline {
+  height: 0.5rem;
+  width: 100%;
+  background: var(--primaryColor);
+}
+.menu li {
+  margin: 0.2rem;
+  color: var(--backgroundColor);
+}
+.menu button {
+  color: var(--backgroundColor);
+  font-weight: 400;
+  padding: 0.2rem 0.5rem;
+}
+.menu button:hover {
+  color: var(--blackColor);
+}
