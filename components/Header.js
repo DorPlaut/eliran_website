@@ -26,7 +26,7 @@ function Header() {
       </div>
       <div className={styles.container}>
         {isMobile ? (
-          <div className={styles.mobile_navbar}>
+          <div id="mobile-nav" className={styles.mobile_navbar}>
             <MobileNav />
           </div>
         ) : (

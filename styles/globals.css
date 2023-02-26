@@ -20,9 +20,10 @@
 }
 body {
   background: var(--backgroundColor);
+  /* maybe comment. chack on mobile */
+  /* width: 100vw; */
+  overflow-x: hidden;
 
-  /* width: 100vw;
-  overflow-x: hidden; */
   display: flex;
   justify-content: center;
 }
