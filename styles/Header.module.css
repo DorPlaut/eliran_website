@@ -135,6 +135,6 @@
     width: 1rem;
   }
   .logo {
-    margin-right: 2rem;
+    transform: translateX(-22vw);
   }
 }

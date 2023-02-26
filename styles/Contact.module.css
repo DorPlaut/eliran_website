@@ -1,0 +1,55 @@
+.form_container {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('../public/hero-backgroung.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--backgroundColor);
+  padding: 2rem;
+}
+
+.page_icon {
+  font-size: 4rem;
+  margin: 1rem;
+}
+
+.form {
+  /* background: var(--backgroundColor); */
+}
+.form ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem;
+}
+.form input,
+.form textarea {
+  margin: 0.2rem;
+  padding: 0.3rem;
+  width: 20rem;
+  background: var(--backgroundColor);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+.form textarea:focus,
+.form input:focus {
+  outline: none;
+}
+.form textarea {
+  text-align: right;
+}
+
+.form button {
+  width: 20rem;
+}
