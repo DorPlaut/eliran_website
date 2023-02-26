@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import { CgMenuRound } from 'react-icons/cg';
+// style
+import styles from '@/styles/Header.module.css';
 
 function MobileNav() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div>
+    <div className={isOpen ? styles.nav_container : ''}>
       <button
         className="btn btn-icon"
         onClick={() => {

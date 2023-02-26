@@ -6,9 +6,9 @@ export function ContextProvider({ children }) {
   const [isMobile, setIsMobile] = useState();
   // chack
   const checkIfMobile = () => {
-    if (window.innerWidth < 1000) {
+    if (window.innerWidth < 800) {
       setIsMobile(true);
-    } else if (window.innerWidth >= 1000) {
+    } else if (window.innerWidth >= 800) {
       setIsMobile(false);
     }
   };
