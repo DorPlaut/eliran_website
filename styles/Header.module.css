@@ -92,15 +92,27 @@
   text-align: right;
 }
 
+.scroll_navbar {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.scroll_navbar button {
+  color: var(--primaryColor);
+}
+.scroll_navbar li button {
+  color: var(--backgroundColor);
+}
+
 .backup_btn {
   position: fixed;
   z-index: 2;
   bottom: 1rem;
   left: 1rem;
   font-size: 2rem;
-  height: 3rem;
-  width: 3rem;
-  padding: 0.5rem;
+  height: 2.8rem;
+  width: 2.8rem;
+  display: flex;
+  align-items: center;
   background: var(--darkColor);
   border-radius: 50%;
 }
@@ -121,5 +133,8 @@
 @media screen and (max-width: 800px) {
   .filler_left {
     width: 1rem;
+  }
+  .logo {
+    margin-right: 2rem;
   }
 }

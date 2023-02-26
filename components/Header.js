@@ -29,7 +29,7 @@ function Header() {
       }
     } else {
       setIsVisible(false);
-      if (menu) {
+      if (menu && isMobile == true) {
         menu.style.position = 'fixed';
         menu.style.top = '10.2rem';
       }
@@ -41,7 +41,7 @@ function Header() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  });
 
   return (
     <div className={styles.lines}>
@@ -55,18 +55,9 @@ function Header() {
       </div>
       <div className={styles.container}>
         {isMobile ? (
-          <>
-            <div id="mobile-nav" className={styles.mobile_navbar}>
-              <MobileNav />
-            </div>
-            <div id="nav" className={styles.navbar}>
-              {/* <ul>
-                <li>
-                  <button className="btn text-btn">צור קשר</button>
-                </li>
-              </ul> */}
-            </div>
-          </>
+          <div id="mobile-nav" className={styles.mobile_navbar}>
+            <MobileNav />
+          </div>
         ) : (
           <div id="nav" className={styles.navbar}>
             <Navbar />
@@ -78,9 +69,21 @@ function Header() {
         <LinesSvg className={`${styles.right} ${styles.svg}`} />
       </div>
       {isVisible ? (
-        <a className={styles.backup_btn + ' ' + 'btn btn-icon'} href="#top">
-          <RxDoubleArrowUp />
-        </a>
+        <>
+          {isMobile ? (
+            ''
+          ) : (
+            <div
+              id="scroll-nav"
+              className={`${styles.mobile_navbar} ${styles.scroll_navbar}`}
+            >
+              <MobileNav />
+            </div>
+          )}
+          <a className={styles.backup_btn + ' ' + 'btn btn-icon'} href="#top">
+            <RxDoubleArrowUp />
+          </a>
+        </>
       ) : (
         ''
       )}
