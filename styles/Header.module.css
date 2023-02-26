@@ -65,19 +65,25 @@
   bottom: 0;
   margin-left: 0.5rem;
 }
+.mobile_navbar {
+  z-index: 2;
+  position: fixed;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+.mobile_navbar button {
+  font-size: 2rem;
+}
 
 @media screen and (max-width: 800px) {
   .filler_left {
     width: 1rem;
   }
-  .social {
-    margin-left: 0.2rem;
-  }
 }
 /* tablet */
 @media screen and (max-width: 1200px) {
   .filler_left {
-    width: 0rem;
+    width: 2rem;
   }
   .navbar button {
     font-size: 0.8rem;

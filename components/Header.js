@@ -3,6 +3,7 @@ import LinesSvg from '@/public/lines.svg';
 import Logo from '@/public/logo.svg';
 import Navbar from './Navbar';
 import SocialLinks from './SocialLinks';
+import MobileNav from './MobileNav';
 // states
 import { useMobileContext } from '@/context/mobile';
 
@@ -25,7 +26,9 @@ function Header() {
       </div>
       <div className={styles.container}>
         {isMobile ? (
-          ''
+          <div className={styles.mobile_navbar}>
+            <MobileNav />
+          </div>
         ) : (
           <div className={styles.navbar}>
             <Navbar />

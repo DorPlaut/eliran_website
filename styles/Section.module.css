@@ -45,3 +45,9 @@
   text-align: right;
   color: var(--backgroundColor);
 }
+
+@media screen and (max-width: 800px) {
+  .inner {
+    flex-direction: column-reverse;
+  }
+}
