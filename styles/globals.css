@@ -1,5 +1,6 @@
 :root {
   /* page setting */
+  scroll-behavior: smooth;
   font-size: 16px;
   /* vars */
   --primaryColor: #19a6b0;

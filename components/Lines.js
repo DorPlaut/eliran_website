@@ -3,8 +3,6 @@ import LinesSvg from '@/public/Lines.svg';
 import Logo from '@/public/logo.svg';
 
 function Lines() {
-  const width = document.querySelector('header');
-  console.log(width.width);
   return (
     <div className="lines">
       <div className="filler"></div>
