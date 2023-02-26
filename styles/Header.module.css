@@ -9,8 +9,8 @@
 .lines {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   height: 100%;
+  width: 100%;
   overflow: hidden;
   position: absolute;
 }
@@ -32,7 +32,6 @@
 
 .filler_left {
   width: 10rem;
-
   background: var(--darkColor);
 }
 .logo {
@@ -65,4 +64,22 @@
   position: absolute;
   bottom: 0;
   margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .filler_left {
+    width: 1rem;
+  }
+  .social {
+    margin-left: 0.2rem;
+  }
+}
+/* tablet */
+@media screen and (max-width: 1200px) {
+  .filler_left {
+    width: 0rem;
+  }
+  .navbar button {
+    font-size: 0.8rem;
+  }
 }

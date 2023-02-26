@@ -7,10 +7,12 @@ import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import Footer from '@/components/Footer';
 import HomeContact from '@/components/HomeContact';
-
-const inter = Inter({ subsets: ['latin'] });
+// states
+import { useMobileContext } from '@/context/mobile';
 
 export default function Home() {
+  // states
+  const [isMobile, serIsMobile] = useMobileContext();
   return (
     <>
       <Head>

@@ -21,6 +21,9 @@ function HomeContact() {
               <span>דואר אלקטרוני</span>
               <input type="email" />
             </li>
+            <li className={styles.btn}>
+              <button className="btn btn-color">שלח</button>
+            </li>
           </ul>
         </form>
       </div>

@@ -23,12 +23,13 @@
   list-style: none;
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
 }
 .form_container li {
   font-size: 1.3rem;
   display: flex;
   flex-direction: column;
-  align-items: right;
+  align-items: bottom;
   margin: 0rem 1rem;
 }
 .form_container span {
@@ -44,8 +45,16 @@
 .servics li {
   font-size: 1.5rem;
 }
+/* .servics h5 {
+  color: var(--primaryColor);
+} */
 .icon {
+  color: var(--primaryColorLight);
   font-size: 8rem;
+}
+
+.btn {
+  padding-top: 1rem;
 }
 
 /* media quarrys */
