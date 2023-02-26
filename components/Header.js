@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import LinesSvg from '@/public/Lines.svg';
+import LinesSvg from '@/public/lines.svg';
 import Logo from '@/public/logo.svg';
 import Navbar from './Navbar';
 import SocialLinks from './SocialLinks';

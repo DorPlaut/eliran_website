@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '@/styles/Section.module.css';
-import LinesSvg from '@/public/Lines.svg';
+import LinesSvg from '@/public/lines.svg';
 
 function Section(props) {
   console.log(props.flipped);
