@@ -18,9 +18,14 @@
 .about h1 {
   color: var(--primaryColorLight);
 }
+.blob_container {
+  height: 300%;
+  width: 300%;
+}
 
 .blob {
-  height: 25rem;
+  height: 100%;
+  width: 100%;
   padding: 2rem;
 }
 
@@ -31,5 +36,15 @@
   }
   .about {
     text-align: center;
+  }
+  .blob_container {
+    height: 70%;
+    width: 70%;
+  }
+
+  .blob {
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
   }
 }

@@ -24,13 +24,11 @@ function Header() {
     if (scrollPosition > 80) {
       setIsVisible(true);
       if (menu) {
-        menu.style.position = 'fixed';
         menu.style.top = '0rem';
       }
     } else {
       setIsVisible(false);
       if (menu && isMobile == true) {
-        menu.style.position = 'fixed';
         menu.style.top = '10.2rem';
       }
     }

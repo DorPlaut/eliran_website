@@ -15,7 +15,7 @@ export function ContextProvider({ children }) {
   // set
   useEffect(() => {
     checkIfMobile();
-  }, []);
+  });
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
       checkIfMobile();

@@ -1,13 +1,16 @@
 import React from 'react';
 import Blob from '@/public/blob.svg';
+import Image from 'next/image';
+import profilePic from '../public/profile-blob.png';
+
 // style
 import styles from '@/styles/Hero.module.css';
 
 function Hero() {
   return (
     <div className={`${styles.hero} section`}>
-      <div>
-        <img src="./profile-blob.png" alt="Profile" className={styles.blob} />
+      <div className={styles.blob_container}>
+        <Image src={profilePic} alt="Profile" className={styles.blob} />
       </div>
       <div className={styles.about}>
         <h1>אלרין בללי</h1>
