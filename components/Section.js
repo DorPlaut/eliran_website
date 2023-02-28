@@ -7,7 +7,7 @@ function Section(props) {
   // console.log(props);
   const { flipped } = props;
 
-  const { title, desc, content } = props.post;
+  const { title, desc, content, img } = props.post;
 
   // console.log(title);
 
@@ -20,7 +20,7 @@ function Section(props) {
         }
       >
         <div className={styles.extra}>
-          {/* {img ? <img src={img} alt="Profile" className={styles.img} /> : ''} */}
+          {img ? <img src={img} alt="Profile" className={styles.img} /> : ''}
         </div>
         <div className={styles.content} dir="rtl">
           <div className={styles.title}>
