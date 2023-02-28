@@ -15,6 +15,7 @@ export default function Home() {
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [posts, setPosts] = usePostsContext();
+  console.log(posts);
   return (
     <>
       <Head>
