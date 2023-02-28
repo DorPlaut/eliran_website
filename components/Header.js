@@ -8,6 +8,7 @@ import { RxDoubleArrowUp } from 'react-icons/rx';
 
 // states
 import { useMobileContext } from '@/context/mobile';
+import { usePostsContext } from '@/context/posts';
 
 // style
 import styles from '@/styles/Header.module.css';

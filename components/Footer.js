@@ -45,7 +45,19 @@ function Footer() {
         <div className={styles.menu}>
           <h3>ניווט</h3>
           <div className={styles.underline}></div>
-          <Navbar />
+          <ul className={styles.footer_nav}>
+            <Navbar />
+            <li>
+              <button
+                className="text-btn btn"
+                onClick={() => {
+                  location.href = './accessibility';
+                }}
+              >
+                הצהרת נגישות
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
       <span>build by Dor Plaut. all right reserved to Eliran Balely ©</span>

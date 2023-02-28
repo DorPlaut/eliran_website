@@ -16,9 +16,6 @@
   margin: 1rem;
 }
 
-.form {
-  /* background: var(--backgroundColor); */
-}
 .form ul {
   list-style: none;
   display: flex;

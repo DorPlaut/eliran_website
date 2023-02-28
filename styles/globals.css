@@ -9,9 +9,6 @@
   --blackColor: #131313;
   --backgroundColor: #f4f4f4;
 }
-/* html {
-  width: 100vw;
-} */
 
 * {
   margin: 0;
@@ -74,6 +71,12 @@ section {
 }
 .btn-icon:hover {
   color: var(--backgroundColor);
+}
+
+/* editor for admin */
+.ql-editor {
+  font-size: 1.5rem;
+  text-align: right;
 }
 
 @media screen and (max-width: 800px) {

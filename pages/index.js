@@ -9,10 +9,12 @@ import Footer from '@/components/Footer';
 import HomeContact from '@/components/HomeContact';
 // states
 import { useMobileContext } from '@/context/mobile';
+import { usePostsContext } from '@/context/posts';
 
 export default function Home() {
   // states
-  const [isMobile, serIsMobile] = useMobileContext();
+  const [isMobile, setIsMobile] = useMobileContext();
+  const [posts, setPosts] = usePostsContext();
   return (
     <>
       <Head>
@@ -28,18 +30,20 @@ export default function Home() {
         <section>
           <Hero />
         </section>
-        <section>
-          <Section
-            flipped={true}
-            img="https://images.pexels.com/photos/618158/pexels-photo-618158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          />
-        </section>
+        {posts &&
+          posts.map((post, index) => {
+            return (
+              <section>
+                <Section flipped={index % 2 == 0 ? true : false} post={post} />
+              </section>
+            );
+          })}
         <section>
           <HomeContact />
         </section>
-        <section>
-          <Section img="https://images.pexels.com/photos/7875996/pexels-photo-7875996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        </section>
+        {/* <section>
+          <Section posts={posts} />
+        </section> */}
         <footer>
           <Footer />
         </footer>

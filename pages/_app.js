@@ -1,11 +1,16 @@
 import '@/styles/globals.css';
-import { ContextProvider } from '@/context/mobile';
+import { MobileContextProvider } from '@/context/mobile';
+import { PostsContextProvider } from '@/context/posts';
+import { SessionProvider } from 'next-auth/react';
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, session }) {
   return (
-    <ContextProvider>
-      {' '}
-      <Component {...pageProps} />{' '}
-    </ContextProvider>
+    <SessionProvider session={session}>
+      <MobileContextProvider>
+        <PostsContextProvider>
+          <Component {...pageProps} />
+        </PostsContextProvider>
+      </MobileContextProvider>
+    </SessionProvider>
   );
 }

@@ -2,8 +2,9 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 const Context = createContext();
 
-export function ContextProvider({ children }) {
-  const [isMobile, setIsMobile] = useState();
+export function MobileContextProvider({ children }) {
+  // is mobile
+  const [isMobile, setIsMobile] = useState(false);
   // chack
   const checkIfMobile = () => {
     if (window.innerWidth < 800) {

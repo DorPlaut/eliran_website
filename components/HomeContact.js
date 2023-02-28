@@ -5,7 +5,8 @@ import { FaRegIdCard, FaBalanceScale, FaPeopleArrows } from 'react-icons/fa';
 function HomeContact() {
   return (
     <div className={styles.container}>
-      <div className={styles.form_container}>
+      {/* Email Form. */}
+      {/* <div className={styles.form_container}>
         <h4>ליעוץ ראשוני אנא מלאו פרטים ונחזור אליכם במהרה</h4>
         <form action="">
           <ul>
@@ -26,7 +27,7 @@ function HomeContact() {
             </li>
           </ul>
         </form>
-      </div>
+      </div> */}
       <div className={styles.servics}>
         <ul>
           <li>
