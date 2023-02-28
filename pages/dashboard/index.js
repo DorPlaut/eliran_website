@@ -41,7 +41,7 @@ function Dashbord() {
     if (session) {
       handleUser();
     }
-  }, [session]);
+  }, []);
 
   return (
     <div className={styles.page} dir="rtl">
