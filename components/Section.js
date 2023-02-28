@@ -27,7 +27,7 @@ function Section(props) {
             <h1>{title}</h1>
             <h2>{desc}</h2>
           </div>
-          <p>{parse(content)}</p>
+          {parse(content)}
 
           {readMoreLink ? (
             <button className="btn-color btn">...קרא עוד</button>

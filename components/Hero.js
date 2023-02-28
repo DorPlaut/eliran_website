@@ -10,7 +10,12 @@ function Hero() {
   return (
     <div className={`${styles.hero} section`}>
       <div className={styles.blob_container}>
-        <Image src={profilePic} alt="Profile" className={styles.blob} />
+        <Image
+          src={profilePic}
+          alt="Profile"
+          className={styles.blob}
+          priority
+        />
       </div>
       <div className={styles.about}>
         <h1>אלרין בללי</h1>
