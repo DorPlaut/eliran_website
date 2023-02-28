@@ -33,12 +33,8 @@ export default function Home() {
         {posts &&
           posts.map((post, index) => {
             return (
-              <section>
-                <Section
-                  flipped={index % 2 == 0 ? true : false}
-                  post={post}
-                  key={index}
-                />
+              <section key={index}>
+                <Section flipped={index % 2 == 0 ? true : false} post={post} />
               </section>
             );
           })}
