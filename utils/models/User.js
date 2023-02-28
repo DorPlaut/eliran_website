@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema(
     name: { type: String },
     email: { type: String },
     phone: { type: String },
-    address1: { type: String },
+    address: { type: String },
     isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }

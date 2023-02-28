@@ -6,7 +6,7 @@ import axios from 'axios';
 // test
 
 import { usePostsContext } from '@/context/posts'; //
-function NewPost() {
+function NewPost({ showAlert, setPage }) {
   // testt
   const [posts, setPosts] = usePostsContext();
 
@@ -22,19 +22,24 @@ function NewPost() {
 
   const post = async () => {
     try {
-      await axios.post(
-        `../../api/post`,
-        {
-          title: title,
-          desc: desc,
-          content: content,
-          img: [],
-          type: 'כתבה',
-        }
-        // {
-        //   headers: { Authorization: `Bearer ${token}` },
-        // }
-      );
+      await axios
+        .post(
+          `../../api/post`,
+          {
+            title: title,
+            desc: desc,
+            content: content,
+            img: [],
+            type: 'כתבה',
+          }
+          // {
+          //   headers: { Authorization: `Bearer ${token}` },
+          // }
+        )
+        .then(() => {
+          showAlert('הפוסט נשלח בהצלחה');
+          setPage('dash');
+        });
     } catch (err) {
       console.log(err);
     }

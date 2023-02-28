@@ -7,7 +7,7 @@ function AdminNav({ setPage }) {
       <ul>
         <li>
           <button onClick={() => setPage('dash')} className="btn btn-icon">
-            עמוד ראשי
+            לוח בקרה
           </button>
         </li>
         <li>

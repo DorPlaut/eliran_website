@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+
 import { MobileContextProvider } from '@/context/mobile';
 import { PostsContextProvider } from '@/context/posts';
 import { SessionProvider } from 'next-auth/react';

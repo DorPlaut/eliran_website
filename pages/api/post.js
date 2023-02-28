@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       console.log(req.body);
       const newPost = await Post.create(req.body);
       console.log('posted new');
-      res.status(200).json({ name: 'John Doe' });
+      res.status(200).json(newPost);
     }
     if (req.method === 'GET') {
       const allPosts = await Post.find();

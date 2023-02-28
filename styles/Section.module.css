@@ -42,8 +42,12 @@
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 }
 .content {
-  text-align: right;
+  /* text-align: right; */
+  text-align: left;
   color: var(--backgroundColor);
+}
+.title {
+  text-align: right;
 }
 
 @media screen and (max-width: 800px) {

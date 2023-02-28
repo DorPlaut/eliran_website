@@ -10,6 +10,10 @@
   color: var(--backgroundColor);
   text-align: right;
 }
+.container {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3rem;
+}
 .textarea {
   background: var(--backgroundColor);
   color: var(--blackColor);
@@ -29,9 +33,12 @@
 }
 .form input {
   text-align: right;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: 100%;
   padding: 1rem;
+}
+.form button {
+  width: 100%;
 }
 .nav ul {
   list-style: none;
@@ -46,4 +53,11 @@
   font-size: 1.5rem;
   color: var(--primaryColorLight);
   text-decoration: none;
+}
+
+.dash {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  line-height: 200%;
 }

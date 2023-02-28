@@ -23,8 +23,10 @@ function Section(props) {
           {/* {img ? <img src={img} alt="Profile" className={styles.img} /> : ''} */}
         </div>
         <div className={styles.content} dir="rtl">
-          <h1>{title}</h1>
-          <h2>{desc}</h2>
+          <div className={styles.title}>
+            <h1>{title}</h1>
+            <h2>{desc}</h2>
+          </div>
           <p>{parse(content)}</p>
 
           {readMoreLink ? (
