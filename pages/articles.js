@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import { usePostsContext } from '@/context/posts';
 
-function articles() {
+function Articles() {
   const [posts, setPosts] = usePostsContext();
   return (
     <main className="main">
@@ -28,4 +28,4 @@ function articles() {
   );
 }
 
-export default articles;
+export default Articles;

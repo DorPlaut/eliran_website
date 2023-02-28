@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import { usePostsContext } from '@/context/posts';
 
-function recommendations() {
+function Recommendations() {
   const [posts, setPosts] = usePostsContext();
 
   return (
@@ -29,4 +29,4 @@ function recommendations() {
   );
 }
 
-export default recommendations;
+export default Recommendations;

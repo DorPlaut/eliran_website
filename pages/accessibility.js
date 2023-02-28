@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import { usePostsContext } from '@/context/posts';
 
-function accessibility() {
+function Accessibility() {
   const [posts, setPosts] = usePostsContext();
 
   return (
@@ -29,4 +29,4 @@ function accessibility() {
   );
 }
 
-export default accessibility;
+export default Accessibility;

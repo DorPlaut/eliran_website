@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ContactForm from '@/components/ContactForm';
 
-function contact() {
+function Contact() {
   return (
     <main className="main">
       <header className="header" id="top">
@@ -33,4 +33,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;

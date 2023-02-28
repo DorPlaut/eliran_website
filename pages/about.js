@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import Hero from '@/components/Hero';
 
-function about() {
+function About() {
   return (
     <main className="main">
       <header className="header" id="top">
@@ -20,4 +20,4 @@ function about() {
   );
 }
 
-export default about;
+export default About;

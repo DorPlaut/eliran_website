@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import { usePostsContext } from '@/context/posts';
 
-function expertise() {
+function Expertise() {
   const [posts, setPosts] = usePostsContext();
   return (
     <main className="main">
@@ -28,4 +28,4 @@ function expertise() {
   );
 }
 
-export default expertise;
+export default Expertise;
