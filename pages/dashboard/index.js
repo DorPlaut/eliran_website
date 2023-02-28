@@ -6,7 +6,7 @@ import axios from 'axios';
 import NewPost from '@/components/NewPost';
 import EditPersonalInfo from '@/components/EditPersonalInfo';
 
-function dashbord() {
+function Dashbord() {
   // states
   const [user, setUser] = useState('');
   const [page, setPage] = useState('dash');
@@ -103,4 +103,4 @@ function dashbord() {
   );
 }
 
-export default dashbord;
+export default Dashbord;
