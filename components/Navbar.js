@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 function Navbar() {
   // handle click
@@ -8,64 +9,34 @@ function Navbar() {
   return (
     <ul>
       <li>
-        <button
-          className="text-btn btn"
-          onClick={() => {
-            handleClick('./contact');
-          }}
-        >
-          צור קשר
-        </button>
+        <Link href="/contact" passHref legacyBehavior>
+          <button className="text-btn btn">צור קשר</button>
+        </Link>
       </li>
       <li>
-        <button
-          className="text-btn btn"
-          onClick={() => {
-            handleClick('./recommendations');
-          }}
-        >
-          המלצות
-        </button>
+        <Link href="/recommendations" passHref legacyBehavior>
+          <button className="text-btn btn">המלצות</button>
+        </Link>
       </li>
       <li>
-        <button
-          className="text-btn btn"
-          onClick={() => {
-            handleClick('./articles');
-          }}
-        >
-          כתבות
-        </button>
+        <Link href="/articles" passHref legacyBehavior>
+          <button className="text-btn btn">כתבות</button>
+        </Link>
       </li>
       <li>
-        <button
-          className="text-btn btn"
-          onClick={() => {
-            handleClick('./expertise');
-          }}
-        >
-          תחומי התמחות
-        </button>
+        <Link href="/expertise" passHref legacyBehavior>
+          <button className="text-btn btn">תחומי התמחות</button>
+        </Link>
       </li>
       <li>
-        <button
-          className="text-btn btn"
-          onClick={() => {
-            handleClick('./about');
-          }}
-        >
-          אודות
-        </button>
+        <Link href="/about" passHref legacyBehavior>
+          <button className="text-btn btn">אודות</button>
+        </Link>
       </li>
       <li>
-        <button
-          className="text-btn btn"
-          onClick={() => {
-            handleClick('./');
-          }}
-        >
-          ראשי
-        </button>
+        <Link href="/" passHref legacyBehavior>
+          <button className="text-btn btn">ראשי</button>
+        </Link>
       </li>
     </ul>
   );
