@@ -15,6 +15,11 @@ function AdminNav({ setPage }) {
             כתוב פוסט חדש
           </button>
         </li>
+        <li>
+          <button onClick={() => setPage('posts')} className="btn btn-icon">
+            ערוך/מחק פוסטים
+          </button>
+        </li>
       </ul>
     </div>
   );

@@ -20,13 +20,12 @@ function NewPost({ showAlert, setPage }) {
   const [photos, setPhotos] = useState([]);
 
   //   post req
-  // delete Product
 
   const post = async () => {
     try {
       await axios
         .post(
-          `../../api/post`,
+          `../../api/posts`,
           {
             title: title,
             desc: desc,

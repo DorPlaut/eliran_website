@@ -6,6 +6,9 @@ const Context = createContext();
 export function PostsContextProvider({ children }) {
   // get all posts
   const [posts, setPosts] = useState();
+  const updatePosts = () => {
+    getAllPosts();
+  };
 
   const getAllPosts = async () => {
     try {
@@ -23,7 +26,9 @@ export function PostsContextProvider({ children }) {
   // end
 
   return (
-    <Context.Provider value={[posts, setPosts]}>{children}</Context.Provider>
+    <Context.Provider value={[posts, setPosts, updatePosts]}>
+      {children}
+    </Context.Provider>
   );
 }
 

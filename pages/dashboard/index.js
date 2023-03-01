@@ -5,6 +5,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import axios from 'axios';
 import NewPost from '@/components/NewPost';
 import EditPersonalInfo from '@/components/EditPersonalInfo';
+import DashPosts from '@/components/DashPosts';
 
 function Dashbord() {
   // states
@@ -74,6 +75,11 @@ function Dashbord() {
                     {page == 'new' && (
                       <>
                         <NewPost showAlert={showAlert} setPage={setPage} />
+                      </>
+                    )}
+                    {page == 'posts' && (
+                      <>
+                        <DashPosts showAlert={showAlert} setPage={setPage} />
                       </>
                     )}
                   </div>
