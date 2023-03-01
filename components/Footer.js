@@ -3,6 +3,7 @@ import SocialLinks from './SocialLinks';
 import styles from '@/styles/Footer.module.css';
 import Navbar from './Navbar';
 import { BiTimeFive, BiPhone, BiMap, BiEnvelope } from 'react-icons/bi';
+import Link from 'next/link';
 
 function Footer() {
   return (
@@ -48,14 +49,9 @@ function Footer() {
           <ul className={styles.footer_nav}>
             <Navbar />
             <li>
-              <button
-                className="text-btn btn"
-                onClick={() => {
-                  location.href = './accessibility';
-                }}
-              >
-                הצהרת נגישות
-              </button>
+              <Link href="/accessibility" passHref legacyBehavior>
+                <button className="text-btn btn">הצהרת נגישות</button>
+              </Link>
             </li>
           </ul>
         </div>

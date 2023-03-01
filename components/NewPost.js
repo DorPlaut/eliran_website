@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import styles from '@/styles/Dash.module.css';
 import TextEditor from '@/components/TextEditor';
 import axios from 'axios';
+import ImageUploader from './ImageUploader';
 
 // test
 
-import { usePostsContext } from '@/context/posts'; //
+import { usePostsContext } from '@/context/posts';
 function NewPost({ showAlert, setPage }) {
   // testt
   const [posts, setPosts] = usePostsContext();
 
-  //
+  // post content
   const [title, setTitle] = useState('כותרת');
   const [desc, setDesc] = useState('תיאור');
   const [content, setContent] = useState(
     'כתוב את הפוסט שלח כאן. אין צורך להוסיף כותרת ראשית בגוף הטקסט.'
   );
+  const [photos, setPhotos] = useState([]);
 
   //   post req
   // delete Product
@@ -71,6 +73,11 @@ function NewPost({ showAlert, setPage }) {
         <div className={styles.textarea}>
           <TextEditor content={content} setContent={setContent} />
         </div>
+        <ImageUploader
+          photos={photos}
+          setPhotos={setPhotos}
+          text="Upload Pic"
+        />
         <button type="submit" className="btn btn-color">
           פרסם לאתר
         </button>

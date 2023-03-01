@@ -11,6 +11,11 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Assistant&display=swap"
           rel="stylesheet"
         />
+        {/* cloudinery */}
+        <script
+          src="https://upload-widget.cloudinary.com/global/all.js"
+          type="text/javascript"
+        ></script>
       </Head>
       <body>
         <Main />

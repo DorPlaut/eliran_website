@@ -11,6 +11,8 @@ function Dashbord() {
   const [user, setUser] = useState('');
   const [page, setPage] = useState('dash');
   const [alert, setAlert] = useState();
+  const [update, setUpdate] = useState(false);
+  const updateUser = () => setUpdate(!update);
   // user session
   const { data: session } = useSession();
   // handle alerts
@@ -41,6 +43,9 @@ function Dashbord() {
     if (session) {
       handleUser();
     }
+  }, [update]);
+  useEffect(() => {
+    updateUser();
   }, [session]);
 
   return (
@@ -59,7 +64,11 @@ function Dashbord() {
                     {/* main page */}
                     {page == 'dash' && (
                       <>
-                        <EditPersonalInfo user={user} showAlert={showAlert} />
+                        <EditPersonalInfo
+                          user={user}
+                          showAlert={showAlert}
+                          updateUser={updateUser}
+                        />
                       </>
                     )}
                     {page == 'new' && (
@@ -95,9 +104,7 @@ function Dashbord() {
             </button>
           </>
         )}
-        <div className={styles.alert}>
-          <h1>{alert}</h1>
-        </div>
+        {alert && <h3 className={styles.alert}>{alert}</h3>}
       </div>
     </div>
   );

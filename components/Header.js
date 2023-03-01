@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import SocialLinks from './SocialLinks';
 import MobileNav from './MobileNav';
 import { RxDoubleArrowUp } from 'react-icons/rx';
+import Link from 'next/link';
 
 // states
 import { useMobileContext } from '@/context/mobile';
@@ -62,8 +63,10 @@ function Header() {
             <Navbar />
           </div>
         )}
+        <Link href="/" className={styles.link}>
+          <Logo className={styles.logo} />
+        </Link>
 
-        <Logo className={styles.logo} />
         <div className={styles.filler_right}></div>
         <LinesSvg className={`${styles.right} ${styles.svg}`} />
       </div>

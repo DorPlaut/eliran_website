@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '@/styles/Dash.module.css';
 import axios from 'axios';
 
-export default function EditPersonalInfo({ user, showAlert }) {
+export default function EditPersonalInfo({ user, showAlert, updateUser }) {
   // state
   const [newAdress, setNewAdress] = useState();
   const [newPhone, setNewPhone] = useState();
@@ -15,6 +15,7 @@ export default function EditPersonalInfo({ user, showAlert }) {
     if (newEmail) res.email = newEmail;
     return res;
   };
+  // update profile info
   const updateProfile = async () => {
     try {
       await axios.put(`../../api/user`, reqBody()).then((res) => {
@@ -22,15 +23,14 @@ export default function EditPersonalInfo({ user, showAlert }) {
         setNewPhone('');
         setNewEmail('');
         showAlert('הפרטים עודכנו בהצלחה');
+        updateUser();
       });
     } catch (err) {
       console.log(err);
     }
   };
   //   handle Click
-  const handleClick = () => {
-    updateProfile();
-  };
+
   //   rephrase data for ui
   const { _id, name, email, phone, address } = user;
   return (
@@ -40,7 +40,7 @@ export default function EditPersonalInfo({ user, showAlert }) {
       <div className={styles.form}>
         <p>המידע המוצג בלוח הבקרה מסונכרן אוטומטית עם האתר. </p>
         {/* email */}
-        <span>כתובת המייל המקושרת לאתר היא: {email}</span>
+        {/* <span>כתובת המייל המקושרת לאתר היא: {email}</span>
         {newEmail ? (
           <>
             <input
@@ -58,7 +58,7 @@ export default function EditPersonalInfo({ user, showAlert }) {
           <button className="btn btn-color" onClick={() => setNewEmail(' ')}>
             לשינוי כתובת המייל לחץ כאן
           </button>
-        )}
+        )} */}
         {/* phone */}
         <span>מספר הטלפון המקושר לאתר הוא: {phone}</span>
         {newPhone ? (
@@ -96,9 +96,10 @@ export default function EditPersonalInfo({ user, showAlert }) {
           </>
         ) : (
           <button className="btn btn-color" onClick={() => setNewAdress(' ')}>
-            לשינוי הכתובת המייל לחץ כאן
+            לשינוי הכתובת לחץ כאן
           </button>
         )}
+        <br />
       </div>
     </div>
   );
