@@ -82,7 +82,7 @@ function NewPost({ showAlert, setPage }) {
           {photos.length > 0 && (
             <>
               {photos.map((i) => (
-                <img src={i} alt="" />
+                <img src={i} alt="" key={i} />
               ))}
               <br />
             </>
