@@ -23,8 +23,10 @@ function ImageUploader({ photos, setPhotos, text }) {
   }, []);
   return (
     <>
+      {' '}
+      <br />
       <button
-        className="btn"
+        className="btn btn-color"
         onClick={(event) => {
           event.preventDefault();
           widgetRef.current.open();
@@ -33,7 +35,6 @@ function ImageUploader({ photos, setPhotos, text }) {
         {text}
       </button>
       <br />
-      <img id="uploadedimage" src="" alt="image"></img>
     </>
   );
 }

@@ -78,10 +78,22 @@ function NewPost({ showAlert, setPage }) {
           setPhotos={setPhotos}
           text="Upload Pic"
         />
+        <div>
+          {photos.length > 0 && (
+            <>
+              {photos.map((i) => (
+                <img src={i} alt="" />
+              ))}
+              <br />
+            </>
+          )}
+        </div>
+
         <button type="submit" className="btn btn-color">
           פרסם לאתר
         </button>
       </form>
+      <br />
     </div>
   );
 }
