@@ -31,7 +31,7 @@ function NewPost({ showAlert, setPage }) {
             title: title,
             desc: desc,
             content: content,
-            img: [],
+            img: photos,
             type: 'כתבה',
           }
           // {

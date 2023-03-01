@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   margin: 3rem;
-  padding: 3rem;
+  padding: 1.5rem 3rem;
   background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
 }
@@ -42,11 +42,20 @@
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 }
 .content {
-  /* text-align: right; */
   text-align: left;
   color: var(--backgroundColor);
 }
 .title {
+  text-align: right;
+}
+.title h1 {
+  font-size: 1.5rem;
+  color: var(--primaryColorLight);
+}
+.title h2 {
+  font-size: 1.2rem;
+}
+.btn {
   text-align: right;
 }
 

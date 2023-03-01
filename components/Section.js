@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '@/styles/Section.module.css';
 import LinesSvg from '@/public/lines.svg';
 import parse from 'html-react-parser';
+import Image from 'next/image';
 
 function Section(props) {
   // console.log(props);
@@ -20,7 +21,9 @@ function Section(props) {
         }
       >
         <div className={styles.extra}>
-          {img ? <img src={img} alt="Profile" className={styles.img} /> : ''}
+          {img.length > 0 && (
+            <img src={img[0]} alt={img} className={styles.img} />
+          )}
         </div>
         <div className={styles.content} dir="rtl">
           <div className={styles.title}>
@@ -28,12 +31,9 @@ function Section(props) {
             <h2>{desc}</h2>
           </div>
           {parse(content)}
-
-          {readMoreLink ? (
+          <div className={styles.btn}>
             <button className="btn-color btn">...קרא עוד</button>
-          ) : (
-            ''
-          )}
+          </div>
         </div>
       </div>
       <LinesSvg className={flipped ? styles.lines_flip : styles.lines} />
