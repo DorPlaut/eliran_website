@@ -12,16 +12,7 @@ function Accessibility() {
       <header className="header" id="top">
         <Header />
       </header>
-      <section>
-        {posts &&
-          posts.map((post, index) => {
-            return (
-              <section key={index}>
-                <Section flipped={index % 2 == 0 ? true : false} post={post} />
-              </section>
-            );
-          })}
-      </section>
+      <section></section>
       <footer>
         <Footer />
       </footer>

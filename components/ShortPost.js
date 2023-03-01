@@ -1,17 +1,17 @@
 import React from 'react';
+// css
 import styles from '@/styles/Section.module.css';
+// components
 import LinesSvg from '@/public/lines.svg';
+// libreries
 import parse from 'html-react-parser';
+import Link from 'next/link';
 
-function Section(props) {
-  // console.log(props);
+function ShortPost(props) {
+  // phrase props
   const { flipped } = props;
-
   const { _id, title, desc, content, img } = props.post;
-
-  // console.log(title);
-
-  let readMoreLink;
+  const limited = content.substring(0, 400) + '...';
   return (
     <div className={styles.container}>
       <div
@@ -19,7 +19,6 @@ function Section(props) {
           flipped ? `${styles.inner} ${styles.inner_flip} ` : `${styles.inner}`
         }
       >
-        {' '}
         <div className={styles.extra}>
           {img.length > 0 && (
             <img src={img[0]} alt={img} className={styles.img} />
@@ -30,9 +29,11 @@ function Section(props) {
             <h1>{title}</h1>
             <h2>{desc}</h2>
           </div>
-          {parse(content)}
+          {parse(limited)}
           <div className={styles.btn}>
-            <button className="btn-color btn">...קרא עוד</button>
+            <Link href={`/articles/${_id}`} passHref legacyBehavior>
+              <button className="btn-color btn">קרא עוד...</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -41,4 +42,4 @@ function Section(props) {
   );
 }
 
-export default Section;
+export default ShortPost;

@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Section from '@/components/Section';
 import { usePostsContext } from '@/context/posts';
+import ShortPost from '@/components/ShortPost';
 
 function Articles() {
   const [posts, setPosts] = usePostsContext();
@@ -16,7 +16,10 @@ function Articles() {
           posts.map((post, index) => {
             return (
               <section key={index}>
-                <Section flipped={index % 2 == 0 ? true : false} post={post} />
+                <ShortPost
+                  flipped={index % 2 == 0 ? true : false}
+                  post={post}
+                />
               </section>
             );
           })}

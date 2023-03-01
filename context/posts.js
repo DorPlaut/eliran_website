@@ -9,7 +9,7 @@ export function PostsContextProvider({ children }) {
 
   const getAllPosts = async () => {
     try {
-      await axios.get(`../../api/post`).then((res) => {
+      await axios.get(`../../api/posts`).then((res) => {
         setPosts(res.data);
       });
     } catch (err) {

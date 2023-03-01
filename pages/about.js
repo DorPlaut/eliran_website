@@ -11,7 +11,7 @@ function About() {
         <Header />
       </header>
       <section>
-        <Hero />
+        <Hero full />
       </section>
       <footer>
         <Footer />

@@ -12,9 +12,18 @@ export default async function handler(req, res) {
       res.status(200).json(newPost);
     }
     if (req.method === 'GET') {
-      const allPosts = await Post.find();
-      console.log('get posts');
-      res.status(200).json(allPosts);
+      const postId = req.query.id;
+      console.log(postId);
+      if (postId) {
+        const post = await Post.findById(postId);
+        console.log('get post');
+
+        res.status(200).json(post);
+      } else {
+        const allPosts = await Post.find();
+        console.log('get posts');
+        res.status(200).json(allPosts);
+      }
     }
   } catch (err) {
     res.status(500).json(err);

@@ -67,3 +67,6 @@
   padding: 0.6rem;
   margin: 0.5rem;
 }
+.page img {
+  max-width: 20rem;
+}
