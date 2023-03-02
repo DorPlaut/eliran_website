@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { usePostsContext } from '@/context/posts';
@@ -6,14 +6,26 @@ import ShortPost from '@/components/ShortPost';
 
 function Articles() {
   const [posts, setPosts] = usePostsContext();
+  const [selectedPosts, setSelected] = useState();
+
+  // flitersd unwonted posts
+  useEffect(() => {
+    if (posts) {
+      setSelected(
+        posts.filter((i) => {
+          return i.type == 'כתבה';
+        })
+      );
+    }
+  }, [posts]);
   return (
     <main className="main">
       <header className="header" id="top">
         <Header />
       </header>
       <section>
-        {posts &&
-          posts.map((post, index) => {
+        {selectedPosts &&
+          selectedPosts.map((post, index) => {
             return (
               <section key={index}>
                 <ShortPost

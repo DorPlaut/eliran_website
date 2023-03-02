@@ -11,11 +11,24 @@ import ShortPost from '@/components/ShortPost';
 // states
 import { useMobileContext } from '@/context/mobile';
 import { usePostsContext } from '@/context/posts';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [posts, setPosts] = usePostsContext();
+  const [selectedPosts, setSelected] = useState();
+
+  // flitersd unwonted posts
+  useEffect(() => {
+    if (posts) {
+      setSelected(
+        posts.filter((i) => {
+          return i.type == 'כתבה';
+        })
+      );
+    }
+  }, [posts]);
   return (
     <>
       <Head>
@@ -31,8 +44,8 @@ export default function Home() {
         <section>
           <Hero />
         </section>
-        {posts &&
-          posts.map((post, index) => {
+        {selectedPosts &&
+          selectedPosts.map((post, index) => {
             return (
               <ShortPost
                 flipped={index % 2 == 0 ? true : false}

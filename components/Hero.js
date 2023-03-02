@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Blob from '@/public/blob.svg';
 import Image from 'next/image';
 import profilePic from '../public/profile-blob.png';
+import { usePostsContext } from '@/context/posts';
 
 // style
 import styles from '@/styles/Hero.module.css';
 
 function Hero() {
+  const [posts, setPosts] = usePostsContext();
+
+  // flitersd unwonted posts
+  useEffect(() => {}, [posts]);
   return (
     <div className={`${styles.hero} section`}>
       <div className={styles.blob_container}>

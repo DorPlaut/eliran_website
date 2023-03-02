@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
         res.status(200).json(post);
       } else {
-        const allPosts = await Post.find();
+        const allPosts = await Post.find().sort({ createdAt: 'desc' });
         console.log('get posts');
         res.status(200).json(allPosts);
       }

@@ -5,58 +5,55 @@ import axios from 'axios';
 import ImageUploader from './ImageUploader';
 import { usePostsContext } from '@/context/posts';
 
+function EditPost({ showAlert, setPage, postId }) {
+  // testt
+  const [posts, setPosts] = usePostsContext();
+  const [postToEdit, setPost] = useState();
 
-function EditPost({showAlert, setPage, postId}) {
-// testt
-const [posts, setPosts] = usePostsContext();
-const [postToEdit, setPost] = useState()
+  // set post to edit
+  useEffect(() => {
+    posts.map((post, index) => {
+      if (post._id == postId) {
+        setPost(post);
+      }
+    });
+  }, []);
+  useEffect(() => {
+    if (postToEdit) {
+      setTitle(postToEdit.title);
+      setDesc(postToEdit.desc);
+      setContent(postToEdit.content);
+      setPhotos(postToEdit.img);
+    }
+  }, [postToEdit]);
 
-// set post to edit
-useEffect(()=>{
-    posts.map((post,index)=>{
-    if(post._id == postId){
-        setPost(post)
-    } 
-    })
+  // post content
+  const [title, setTitle] = useState();
+  const [desc, setDesc] = useState();
+  const [content, setContent] = useState();
+  const [photos, setPhotos] = useState([]);
 
-},[])
-useEffect(()=>{
-if(postToEdit){
-    setTitle(postToEdit.title)
-    setDesc(postToEdit.desc)
-    setContent(postToEdit.content)
-    setPhotos(postToEdit.img)
-}
+  //   post req
 
-},[postToEdit])
-
-// post content
-const [title, setTitle] = useState();
-const [desc, setDesc] = useState();
-const [content, setContent] = useState();
-const [photos, setPhotos] = useState([]);
-
-//   post req
-
- // update post info
- const updatePost = async () => {
+  // update post info
+  const updatePost = async () => {
     console.log('update');
     try {
       await axios.put(`../../api/posts`, reqBody()).then((res) => {
         showAlert('הפוסט עודכנו בהצלחה');
-        setPage('dash')
+        setPage('dash');
       });
     } catch (err) {
       console.log(err);
     }
   };
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  updatePost();
-};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updatePost();
+  };
 
-// set update body
+  // set update body
   // update
   const reqBody = () => {
     let body = { id: postToEdit._id };
@@ -68,55 +65,53 @@ const handleSubmit = (event) => {
     return body;
   };
 
-return (
-  <div className={styles.main}>
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <h3>ערוך את הפוסט:</h3>
-      {postToEdit && <>
-      {/* title */}
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      {/* desc */}
-      <input
-        type="text"
-        value={desc}
-        onChange={(e) => setDesc(e.target.value)}
-      />
-      {/* content */}
-      <div className={styles.textarea}>
-        <TextEditor content={content} edit setContent={setContent} />
-      </div>
-      <ImageUploader
-        photos={photos}
-        setPhotos={setPhotos}
-        text="Upload Pic"
-      />
-      <div>
-        {photos.length > 0 && (
+  return (
+    <div className={styles.main}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <h3>ערוך את הפוסט:</h3>
+        {postToEdit && (
           <>
-            {photos.map((i) => (
-              <img src={i} alt="" key={i} />
-            ))}
-            <br />
+            {/* title */}
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            {/* desc */}
+            <input
+              type="text"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+            />
+            {/* content */}
+            <div className={styles.textarea}>
+              <TextEditor content={content} edit setContent={setContent} />
+            </div>
+            <ImageUploader
+              photos={photos}
+              setPhotos={setPhotos}
+              text="Upload Pic"
+            />
+            <div>
+              {photos.length > 0 && (
+                <>
+                  {photos.map((i) => (
+                    <img src={i} alt="" key={i} />
+                  ))}
+                  <br />
+                </>
+              )}
+            </div>
+
+            <button type="submit" className="btn btn-color">
+              שמור שינויים
+            </button>
           </>
         )}
-      </div>
-
-      <button type="submit" className="btn btn-color">
-        פרסם לאתר
-      </button>
-      
-      
-      
-      
-      </>}
-    </form>
-    <br />
-  </div>
-);
+      </form>
+      <br />
+    </div>
+  );
 }
 
-export default EditPost
+export default EditPost;

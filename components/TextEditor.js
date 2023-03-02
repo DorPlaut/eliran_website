@@ -57,7 +57,7 @@ const formats = [
   'align',
 ];
 
-export default function TextEditor({ content, setContent ,...props }) {
+export default function TextEditor({ content, setContent, ...props }) {
   const handleContentChange = (value) => {
     setContent(value);
   };
@@ -67,7 +67,7 @@ export default function TextEditor({ content, setContent ,...props }) {
       formats={formats}
       theme="snow"
       placeholder={content}
-      value={props.edit? content : ''}
+      value={content}
       onChange={handleContentChange}
     />
   );
