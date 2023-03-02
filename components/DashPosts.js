@@ -6,7 +6,7 @@ import ImageUploader from './ImageUploader';
 import { usePostsContext } from '@/context/posts';
 import Image from 'next/image';
 
-function DashPosts({ showAlert, setPage }) {
+function DashPosts({ showAlert, setPage,setPostId }) {
   const [posts, setPosts, updatePosts] = usePostsContext();
 
   //   delete post
@@ -22,9 +22,6 @@ function DashPosts({ showAlert, setPage }) {
       console.log(err);
     }
   };
-
-  console.log(posts);
-
   return (
     <div className={styles.main}>
       <div className={styles.post_container}>
@@ -35,7 +32,10 @@ function DashPosts({ showAlert, setPage }) {
               <h4>{post.desc}</h4>
               {post.img.length > 0 ? <img src={post.img[0]} /> : ''}
               <div className={styles.btn_container}>
-                <button className="btn btn-color">ערוך פוסט</button>
+                <button className="btn btn-color" onClick={() => {
+                  setPage('edit')
+                  setPostId(post._id)
+                  }}>ערוך פוסט</button>
                 <button
                   className="btn btn-color"
                   onClick={() => deletePost(post._id)}

@@ -25,6 +25,19 @@ export default async function handler(req, res) {
         res.status(200).json(allPosts);
       }
     }
+    if (req.method === 'PUT') {
+      const id = req.body.id;
+      const keyToExclude = 'id';
+      const update = {};
+      for (const key in req.body) {
+        if (key !== keyToExclude) {
+          update[key] = req.body[key];
+        }
+      }
+      const updatePost = await Post.findByIdAndUpdate(id, update);
+      console.log('update post');
+      res.status(200).json(updatePost);
+    }
     if (req.method === 'DELETE') {
       const postId = req.body.id;
       const deletedPost = await Post.findByIdAndDelete(postId);

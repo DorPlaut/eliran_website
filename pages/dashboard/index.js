@@ -6,12 +6,14 @@ import axios from 'axios';
 import NewPost from '@/components/NewPost';
 import EditPersonalInfo from '@/components/EditPersonalInfo';
 import DashPosts from '@/components/DashPosts';
+import EditPost from '@/components/EditPost';
 
 function Dashbord() {
   // states
   const [user, setUser] = useState('');
   const [page, setPage] = useState('dash');
   const [alert, setAlert] = useState();
+  const [postId, setPostId] = useState();
   const [update, setUpdate] = useState(false);
   const updateUser = () => setUpdate(!update);
   // user session
@@ -79,7 +81,13 @@ function Dashbord() {
                     )}
                     {page == 'posts' && (
                       <>
-                        <DashPosts showAlert={showAlert} setPage={setPage} />
+                        <DashPosts showAlert={showAlert} setPage={setPage} setPostId={setPostId} />
+                      </>
+                    )}
+                
+                    {page == 'edit' && (
+                      <>
+                        <EditPost showAlert={showAlert} setPage={setPage} postId={postId} />
                       </>
                     )}
                   </div>
@@ -101,10 +109,13 @@ function Dashbord() {
             <button className="btn btn-color" onClick={() => signOut()}>
               logOut
             </button>
+     
           </>
         ) : (
           <>
-            <p>על מנת להשתמש במערכת עליך להתחבר עם משתמש בעל הרשאות ניהול</p>
+            
+          <p>על מנת להשתמש במערכת עליך להתחבר עם משתמש בעל הרשאות ניהול</p>
+           <br/>
             <button className="btn btn-color" onClick={() => signIn()}>
               login
             </button>
