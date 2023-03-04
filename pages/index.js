@@ -1,12 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Inter } from '@next/font/google';
-import { Assistant } from '@next/font/google';
+
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Section from '@/components/Section';
 import Footer from '@/components/Footer';
-import HomeContact from '@/components/HomeContact';
+import ServicesIcons from '@/components/ServicesIcons';
 import ShortPost from '@/components/ShortPost';
 // states
 import { useMobileContext } from '@/context/mobile';
@@ -50,17 +48,9 @@ export default function Home() {
         {selectedPosts && aboutPage && (
           <>
             <Hero aboutPage={aboutPage} />
-
-            {selectedPosts.map((post, index) => (
-              <ShortPost
-                flipped={index % 2 == 0 ? true : false}
-                post={post}
-                key={index}
-              />
-            ))}
-            <section>
-              <HomeContact />
-            </section>
+            <ShortPost flipped post={selectedPosts[0]} />
+            <ServicesIcons />
+            <ShortPost flipped post={selectedPosts[0]} />
           </>
         )}
         <footer>

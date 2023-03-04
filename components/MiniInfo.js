@@ -1,6 +1,7 @@
 import React from 'react';
 import SocialLinks from './SocialLinks';
 import { BiTimeFive, BiPhone, BiMap, BiEnvelope } from 'react-icons/bi';
+import { useUserContext } from '@/context/user';
 
 // style
 import styles from '@/styles/Hero.module.css';
@@ -10,6 +11,7 @@ import { usePostsContext } from '@/context/posts';
 import { useEffect, useState } from 'react';
 
 function MiniInfo({ img }) {
+  const [user, setUser] = useUserContext();
   const [posts, setPosts] = usePostsContext();
 
   const [aboutPage, setAboutPage] = useState();
@@ -33,17 +35,19 @@ function MiniInfo({ img }) {
         )}
       </div>
       <SocialLinks />
-      <ul>
-        <li>
-          <BiPhone /> 054-1111111
-        </li>
-        <li>
-          <BiMap /> כתובת 1, פתח תקווה
-        </li>
-        <li>
-          <BiEnvelope /> EmailAdress@gmail.com
-        </li>
-      </ul>
+      {user && (
+        <ul>
+          <li>
+            <BiPhone /> {user.phone}
+          </li>
+          <li>
+            <BiMap /> {user.address}
+          </li>
+          <li>
+            <BiEnvelope /> {user.email}
+          </li>
+        </ul>
+      )}
     </div>
   );
 }

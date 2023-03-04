@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '@/styles/HomeContact.module.css';
 import { FaRegIdCard, FaBalanceScale, FaPeopleArrows } from 'react-icons/fa';
 
-function HomeContact() {
+function ServicesIcons() {
   return (
     <div className={styles.container}>
       {/* Email Form. */}
@@ -51,4 +51,4 @@ function HomeContact() {
   );
 }
 
-export default HomeContact;
+export default ServicesIcons;

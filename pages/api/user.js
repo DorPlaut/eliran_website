@@ -32,11 +32,11 @@ export default async function handler(req, res) {
       console.log('update user');
       res.status(200).json(updateUser);
     }
-    // if (req.method === 'GET') {
-    //   const user = await Post.find();
-    //   console.log('get users');
-    //   res.status(200).json(user);
-    // }
+    if (req.method === 'GET') {
+      console.log('get user');
+      const user = await User.findOne({ isAdmin: true });
+      res.status(200).json(user);
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

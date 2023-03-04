@@ -51,13 +51,13 @@ function DashPosts({ showAlert, setPage, setPostId }) {
                     setPostId(post._id);
                   }}
                 >
-                  ערוך פוסט
+                  ערוך כתבה
                 </button>
                 <button
                   className="btn btn-color"
                   onClick={() => deletePost(post._id)}
                 >
-                  מחק פוסט
+                  מחק כתבה
                 </button>
               </div>
             </div>

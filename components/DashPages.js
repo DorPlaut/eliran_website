@@ -37,7 +37,7 @@ function DashPages({ showAlert, setPage, setPostId }) {
                     setPostId(post._id);
                   }}
                 >
-                  ערוך פוסט
+                  ערוך את תוכן העמוד
                 </button>
               </div>
             </div>

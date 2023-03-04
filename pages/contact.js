@@ -14,9 +14,12 @@ function Contact() {
       <header className="header" id="top">
         <Header />
       </header>
-      <div className={styles.form_container}>
-        <MiniInfo />
-        <ContactForm />
+      <div className={styles.container}>
+        <h1>צור קשר</h1>
+        <div className={styles.inner}>
+          <MiniInfo />
+          <ContactForm />
+        </div>
       </div>
       <section>
         <iframe

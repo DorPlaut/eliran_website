@@ -2,6 +2,7 @@ import '@/styles/globals.css';
 
 import { MobileContextProvider } from '@/context/mobile';
 import { PostsContextProvider } from '@/context/posts';
+import { UserContextProvider } from '@/context/user';
 import { SessionProvider } from 'next-auth/react';
 
 export default function App({ Component, pageProps, session }) {
@@ -9,7 +10,9 @@ export default function App({ Component, pageProps, session }) {
     <SessionProvider session={session}>
       <MobileContextProvider>
         <PostsContextProvider>
-          <Component {...pageProps} />
+          <UserContextProvider>
+            <Component {...pageProps} />
+          </UserContextProvider>
         </PostsContextProvider>
       </MobileContextProvider>
     </SessionProvider>
