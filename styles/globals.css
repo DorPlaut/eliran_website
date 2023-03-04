@@ -34,10 +34,11 @@ header {
   height: 10rem;
   position: relative;
 }
-section {
+/* section {
   max-width: 100vw;
-}
+} */
 /* buttons */
+
 .btn {
   background: none;
   border: none;

@@ -2,49 +2,49 @@ import React, { useState, useEffect } from 'react';
 import Blob from '@/public/blob.svg';
 import Image from 'next/image';
 import profilePic from '../public/profile-blob.png';
-import { usePostsContext } from '@/context/posts';
+import parse from 'html-react-parser';
+import Link from 'next/link';
+import MiniInfo from './MiniInfo';
 
 // style
 import styles from '@/styles/Hero.module.css';
 
-function Hero() {
-  const [posts, setPosts] = usePostsContext();
-
-  // flitersd unwonted posts
-  useEffect(() => {}, [posts]);
+function Hero({ ...props }) {
+  const { _id, title, desc, content, img } = props.aboutPage[0];
+  const limited = content.substring(0, 800) + '...';
   return (
-    <div className={`${styles.hero} section`}>
-      <div className={styles.blob_container}>
-        <Image
-          src={profilePic}
-          alt="Profile"
-          className={styles.blob}
-          priority
-        />
-      </div>
-      <div className={styles.about}>
-        <h1>אלרין בללי</h1>
-        <h2>עורך דין</h2>
-        <p>
-          וסטיבולום סוליסי טידום בעליק. קונדימנטום קורוס בליקרה, נונסטי קלובר
-          בריקנה סטום, לפריקך תצטריק לרטי. קונסקטורר אדיפיסינג אלית. סת אלמנקום
-          ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. וסטיבולום אט דולור, קראס אגת
-          לקטוס וואל אאוגו וסטיבולום סוליסי טידום בעליק. קונדימנטום קורוס
-          בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי. קוואזי במר
-          מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק - וענוף לפרומי
-          בלוף קינץ תתיח לרעח. לת צשחמי צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו
-          בלוקריה שיצמה ברורק. קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים.
-          קלאצי נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף.
-          אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק - וענוף לפרומי בלוף
-          קינץ תתיח לרעח. לת צשחמי לורם איפסום דולור סיט אמט, קונסקטורר
-          אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם.
-          וסטיבולום אט דולור, קראס אגת לקטוס וואל אאוגו וסטיבולום סוליסי טידום
-          בעליק. ושבעגט ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך
-          וסתעד לכנו סתשם השמה - לתכי מורגם בורק? לתיג ישבעס.
-        </p>
-
-        <button className="btn-color btn">צור קשר</button>
-      </div>
+    <div
+      className={
+        props.full
+          ? `${styles.hero} section ${styles.full}`
+          : `${styles.hero} section `
+      }
+      dir="rtl"
+    >
+      <>
+        <div className={styles.about}>
+          <h1>{title}</h1>
+          <h2>{desc}</h2>
+          {props.full ? parse(content) : parse(limited)}
+          {!props.full && (
+            <div className={styles.btn_container}>
+              <Link href="/about" passHref legacyBehavior>
+                <button className="btn-color btn">קרא עוד</button>
+              </Link>
+              <Link href="/contact" passHref legacyBehavior>
+                <button className="btn-color btn">צור קשר</button>
+              </Link>
+            </div>
+          )}
+        </div>
+        {props.full ? (
+          <MiniInfo img={img[0]} />
+        ) : (
+          <div className={styles.blob_container}>
+            <img src={img[0]} alt="Profile" className={styles.blob} />
+          </div>
+        )}
+      </>
     </div>
   );
 }

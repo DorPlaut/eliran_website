@@ -13,11 +13,11 @@ function Navbar() {
           <button className="text-btn btn">צור קשר</button>
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link href="/recommendations" passHref legacyBehavior>
           <button className="text-btn btn">המלצות</button>
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link href="/articles" passHref legacyBehavior>
           <button className="text-btn btn">כתבות</button>

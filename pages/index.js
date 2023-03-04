@@ -18,10 +18,16 @@ export default function Home() {
   const [isMobile, setIsMobile] = useMobileContext();
   const [posts, setPosts] = usePostsContext();
   const [selectedPosts, setSelected] = useState();
+  const [aboutPage, setAboutPage] = useState();
 
   // flitersd unwonted posts
   useEffect(() => {
     if (posts) {
+      setAboutPage(
+        posts.filter((i) => {
+          return i.type == 'אודות';
+        })
+      );
       setSelected(
         posts.filter((i) => {
           return i.type == 'כתבה';
@@ -41,23 +47,22 @@ export default function Home() {
         <header className="header" id="top">
           <Header />
         </header>
-        <section>
-          <Hero />
-        </section>
-        {selectedPosts &&
-          selectedPosts.map((post, index) => {
-            return (
+        {selectedPosts && aboutPage && (
+          <>
+            <Hero aboutPage={aboutPage} />
+
+            {selectedPosts.map((post, index) => (
               <ShortPost
                 flipped={index % 2 == 0 ? true : false}
                 post={post}
                 key={index}
               />
-            );
-          })}
-        <section>
-          <HomeContact />
-        </section>
-
+            ))}
+            <section>
+              <HomeContact />
+            </section>
+          </>
+        )}
         <footer>
           <Footer />
         </footer>

@@ -6,10 +6,7 @@ import { AiOutlineMessage } from 'react-icons/ai';
 
 function ContactForm() {
   return (
-    <div className={styles.form_container}>
-      <h2>צור קשר</h2>
-      <AiOutlineMessage className={styles.page_icon} />
-      <p>צריך עורך דין? צור קשר עכשיו</p>
+    <>
       <form action="" className={styles.form}>
         <ul>
           <li>
@@ -33,7 +30,7 @@ function ContactForm() {
           </li>
         </ul>
       </form>
-    </div>
+    </>
   );
 }
 

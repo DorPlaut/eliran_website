@@ -4,6 +4,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import ContactForm from '@/components/ContactForm';
+import MiniInfo from '@/components/MiniInfo';
+// style
+import styles from '@/styles/Contact.module.css';
 
 function Contact() {
   return (
@@ -11,9 +14,10 @@ function Contact() {
       <header className="header" id="top">
         <Header />
       </header>
-      <section>
+      <div className={styles.form_container}>
+        <MiniInfo />
         <ContactForm />
-      </section>
+      </div>
       <section>
         <iframe
           width="100%"

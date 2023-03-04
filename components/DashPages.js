@@ -6,7 +6,7 @@ import ImageUploader from './ImageUploader';
 import { usePostsContext } from '@/context/posts';
 import Image from 'next/image';
 
-function DashPosts({ showAlert, setPage, setPostId }) {
+function DashPages({ showAlert, setPage, setPostId }) {
   const [posts, setPosts, updatePosts] = usePostsContext();
   const [selectedPosts, setSelected] = useState([]);
 
@@ -15,34 +15,20 @@ function DashPosts({ showAlert, setPage, setPostId }) {
     if (posts) {
       setSelected(
         posts.filter((i) => {
-          return i.type == 'כתבה';
+          return i.type != 'כתבה';
         })
       );
     }
   }, []);
 
-  //   delete post
-  const deletePost = async (id) => {
-    console.log('delete');
-    try {
-      await axios.delete(`../../api/posts`, { data: { id: id } }).then(() => {
-        showAlert('הפוסט הוסר מרשימת הפוסטים');
-        // setPage('dash');
-        updatePosts();
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
   return (
     <div className={styles.main}>
       <div className={styles.post_container}>
         {selectedPosts.map((post, index) => {
           return (
             <div className={styles.single_post} key={index}>
-              <h3>{post.title}</h3>
-              <h4>{post.desc}</h4>
-              {post.img.length > 0 ? <img src={post.img[0]} /> : ''}
+              <h2>{post.type}</h2>
+
               <div className={styles.btn_container}>
                 <button
                   className="btn btn-color"
@@ -53,12 +39,6 @@ function DashPosts({ showAlert, setPage, setPostId }) {
                 >
                   ערוך פוסט
                 </button>
-                <button
-                  className="btn btn-color"
-                  onClick={() => deletePost(post._id)}
-                >
-                  מחק פוסט
-                </button>
               </div>
             </div>
           );
@@ -68,4 +48,4 @@ function DashPosts({ showAlert, setPage, setPostId }) {
   );
 }
 
-export default DashPosts;
+export default DashPages;

@@ -4,8 +4,7 @@
   background-size: cover;
   background-position: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   color: var(--backgroundColor);
   padding: 2rem;

@@ -7,7 +7,7 @@ import { usePostsContext } from '@/context/posts';
 
 function EditPost({ showAlert, setPage, postId }) {
   // testt
-  const [posts, setPosts] = usePostsContext();
+  const [posts, setPosts, updatePosts] = usePostsContext();
   const [postToEdit, setPost] = useState();
 
   // set post to edit
@@ -41,6 +41,7 @@ function EditPost({ showAlert, setPage, postId }) {
     try {
       await axios.put(`../../api/posts`, reqBody()).then((res) => {
         showAlert('הפוסט עודכנו בהצלחה');
+        updatePosts();
         setPage('dash');
       });
     } catch (err) {

@@ -6,6 +6,7 @@ import axios from 'axios';
 import NewPost from '@/components/NewPost';
 import EditPersonalInfo from '@/components/EditPersonalInfo';
 import DashPosts from '@/components/DashPosts';
+import DashPages from '@/components/DashPages';
 import EditPost from '@/components/EditPost';
 
 function Dashbord() {
@@ -81,13 +82,30 @@ function Dashbord() {
                     )}
                     {page == 'posts' && (
                       <>
-                        <DashPosts showAlert={showAlert} setPage={setPage} setPostId={setPostId} />
+                        <DashPosts
+                          showAlert={showAlert}
+                          setPage={setPage}
+                          setPostId={setPostId}
+                        />
                       </>
                     )}
-                
+                    {page == 'pages' && (
+                      <>
+                        <DashPages
+                          showAlert={showAlert}
+                          setPage={setPage}
+                          setPostId={setPostId}
+                        />
+                      </>
+                    )}
+
                     {page == 'edit' && (
                       <>
-                        <EditPost showAlert={showAlert} setPage={setPage} postId={postId} />
+                        <EditPost
+                          showAlert={showAlert}
+                          setPage={setPage}
+                          postId={postId}
+                        />
                       </>
                     )}
                   </div>
@@ -109,13 +127,11 @@ function Dashbord() {
             <button className="btn btn-color" onClick={() => signOut()}>
               logOut
             </button>
-     
           </>
         ) : (
           <>
-            
-          <p>על מנת להשתמש במערכת עליך להתחבר עם משתמש בעל הרשאות ניהול</p>
-           <br/>
+            <p>על מנת להשתמש במערכת עליך להתחבר עם משתמש בעל הרשאות ניהול</p>
+            <br />
             <button className="btn btn-color" onClick={() => signIn()}>
               login
             </button>
