@@ -35,7 +35,6 @@ export default function EditPersonalInfo({ user, showAlert, updateUser }) {
   const { _id, name, email, phone, address } = user;
   return (
     <div className={styles.dash}>
-      <h2>שלום {name}</h2>
       <h3>ערוך את הפרטים שלך:</h3>
       <div className={styles.form}>
         <p>המידע המוצג בלוח הבקרה מסונכרן אוטומטית עם האתר. </p>

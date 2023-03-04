@@ -36,6 +36,9 @@ function DashPosts({ showAlert, setPage, setPostId }) {
   };
   return (
     <div className={styles.main}>
+      <button onClick={() => setPage('new')} className="btn btn-color">
+        כתוב כתבה חדשה
+      </button>
       <div className={styles.post_container}>
         {selectedPosts.map((post, index) => {
           return (

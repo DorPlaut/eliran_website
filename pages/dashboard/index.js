@@ -8,6 +8,7 @@ import EditPersonalInfo from '@/components/EditPersonalInfo';
 import DashPosts from '@/components/DashPosts';
 import DashPages from '@/components/DashPages';
 import EditPost from '@/components/EditPost';
+import Link from 'next/link';
 
 function Dashbord() {
   // states
@@ -55,7 +56,7 @@ function Dashbord() {
   return (
     <div className={styles.page} dir="rtl">
       <div className={styles.container}>
-        <h1>שלום. ברוך הבא למערכת ניהול האתר</h1>
+        <h1>מערכת ניהול לאתר</h1>
 
         {session ? (
           <>
@@ -68,26 +69,47 @@ function Dashbord() {
                     {/* main page */}
                     {page == 'dash' && (
                       <>
-                        <EditPersonalInfo
-                          user={user}
-                          showAlert={showAlert}
-                          updateUser={updateUser}
-                        />
+                        <h3>שלום {session.user.name}</h3>
+                        <p>
+                          ברוך הבא למערכת ניהול האתר שלך. בפניך מספר אפשרויות
+                          ניהול:
+                        </p>
+                        <ul>
+                          <li>
+                            <h4>פרטים אישיים</h4>
+                            בעמוד זה תוכל לערוך את הפרטים האישיים המסונכרים עם
+                            האתר
+                          </li>
+                          <li>
+                            <h4>כתבות</h4>
+                            בעמוד זה תוכל לנהל את הבלוג האישי שלך. לכתוב כתבות
+                            חדשות, לערוך כתבות קיימות, ולמחוק כתבות לא רצויות
+                          </li>
+                          <li>
+                            <h4>עמודי האתר</h4>
+                            בעמוד זה תוכל לערוך את התוכן של עמודי האתר
+                          </li>
+                        </ul>
+                        <p>במידה ונתקלת בבעיה אנא פנה למנהל האתר</p>
+                        <br />
                       </>
+                    )}
+                    {page == 'info' && (
+                      <EditPersonalInfo
+                        user={user}
+                        showAlert={showAlert}
+                        updateUser={updateUser}
+                      />
                     )}
                     {page == 'new' && (
-                      <>
-                        <NewPost showAlert={showAlert} setPage={setPage} />
-                      </>
+                      <NewPost showAlert={showAlert} setPage={setPage} />
                     )}
                     {page == 'posts' && (
-                      <>
-                        <DashPosts
-                          showAlert={showAlert}
-                          setPage={setPage}
-                          setPostId={setPostId}
-                        />
-                      </>
+                      <DashPosts
+                        showAlert={showAlert}
+                        setPage={setPage}
+                        setPostId={setPostId}
+                      />
                     )}
                     {page == 'pages' && (
                       <>
@@ -127,6 +149,9 @@ function Dashbord() {
             <button className="btn btn-color" onClick={() => signOut()}>
               logOut
             </button>
+            <Link href="/" passHref legacyBehavior>
+              <button className="btn btn-color">בחזרה לאתר</button>
+            </Link>
           </>
         ) : (
           <>

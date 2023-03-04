@@ -11,10 +11,11 @@ function AdminNav({ setPage }) {
           </button>
         </li>
         <li>
-          <button onClick={() => setPage('new')} className="btn btn-icon">
-            כתוב כתבה חדשה
+          <button onClick={() => setPage('info')} className="btn btn-icon">
+            פרטים אישיים
           </button>
         </li>
+
         <li>
           <button onClick={() => setPage('posts')} className="btn btn-icon">
             כתבות
