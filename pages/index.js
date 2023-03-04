@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Loader from '@/components/Loader';
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -45,13 +46,17 @@ export default function Home() {
         <header className="header" id="top">
           <Header />
         </header>
-        {selectedPosts && aboutPage && (
+        {selectedPosts && aboutPage ? (
           <>
             <Hero aboutPage={aboutPage} />
             <ShortPost flipped post={selectedPosts[0]} />
             <ServicesIcons />
             <ShortPost flipped post={selectedPosts[0]} />
           </>
+        ) : (
+          <section>
+            <Loader />
+          </section>
         )}
         <footer>
           <Footer />

@@ -18,12 +18,14 @@
     "mongoose": "^6.10.0",
     "next": "13.1.6",
     "next-auth": "^4.19.2",
+    "next-translate": "^2.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-quill": "^2.0.0"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.5.1"
+    "@svgr/webpack": "^6.5.1",
+    "next-translate-plugin": "^2.0.2"
   }
 }

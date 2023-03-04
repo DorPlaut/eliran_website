@@ -1,9 +1,11 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   reactStrictMode: true,
-// };
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+};
 
-// module.exports = nextConfig;
+module.exports = nextConfig;
+
+const nextTranslate = require('next-translate-plugin');
 
 module.exports = {
   webpack(config) {
@@ -16,3 +18,9 @@ module.exports = {
     return config;
   },
 };
+
+// module.exports = nextTranslate({
+//   webpack: (config, { isServer, webpack }) => {
+//     return config;
+//   },
+// });
