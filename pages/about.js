@@ -4,10 +4,18 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import Hero from '@/components/Hero';
 import { usePostsContext } from '@/context/posts';
+// localezation
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 function About() {
   const [posts, setPosts] = usePostsContext();
   const [aboutPage, setAboutPage] = useState();
+  // localezation
+  const { locale = 'he', locales, push } = useRouter();
+  const { t: translate } = useTranslation('home');
 
   // flitersd unwonted posts
   useEffect(() => {
@@ -22,7 +30,7 @@ function About() {
   return (
     <main className="main">
       <header className="header" id="top">
-        <Header />
+        <Header translate={translate} locales={locales} />
       </header>
 
       {aboutPage && (
@@ -44,10 +52,19 @@ function About() {
       </section>
 
       <footer>
-        <Footer />
+        <Footer translate={translate} />
       </footer>
     </main>
   );
 }
 
 export default About;
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      // Will be passed to the page component as props
+    },
+  };
+}

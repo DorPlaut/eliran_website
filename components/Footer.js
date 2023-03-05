@@ -6,7 +6,7 @@ import { BiTimeFive, BiPhone, BiMap, BiEnvelope } from 'react-icons/bi';
 import Link from 'next/link';
 import { useUserContext } from '@/context/user';
 
-function Footer() {
+function Footer({ translate }) {
   const [user, setUser] = useUserContext();
 
   return (
@@ -39,25 +39,27 @@ function Footer() {
           <div className={styles.underline}></div>
           <ul>
             <li>
-              ראשון עד חמישי : 08:00 - 17:00 <BiTimeFive />
+              {translate('ראשון עד חמישי')} : 08:00 - 17:00 <BiTimeFive />
             </li>
             <li>
-              שישי : 08:00 - 12:00 <BiTimeFive />
+              {translate('שישי')} : 08:00 - 12:00 <BiTimeFive />
             </li>
             <li>
-              שבת : סגור <BiTimeFive />
+              {translate('שבת')} : {translate('סגורד')} <BiTimeFive />
             </li>
           </ul>
         </div>
 
         <div className={styles.menu}>
-          <h3>ניווט</h3>
+          <h3>{translate('ניווט')}</h3>
           <div className={styles.underline}></div>
           <ul className={styles.footer_nav}>
-            <Navbar />
+            <Navbar translate={translate} />
             <li>
               <Link href="/accessibility" passHref legacyBehavior>
-                <button className="text-btn btn">הצהרת נגישות</button>
+                <button className="text-btn btn">
+                  {translate('הצהרת נגישות')}
+                </button>
               </Link>
             </li>
           </ul>

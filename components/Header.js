@@ -14,7 +14,7 @@ import { usePostsContext } from '@/context/posts';
 // style
 import styles from '@/styles/Header.module.css';
 
-function Header() {
+function Header({ translate, locales }) {
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [isVisible, setIsVisible] = useState(false);
@@ -48,6 +48,11 @@ function Header() {
       <div className={styles.container}>
         <div className={styles.filler_left}>
           <div className={styles.social}>
+            {locales.map((l, i) => (
+              <Link href="/" locale={l} key={i} className="btn btn-color">
+                {l}
+              </Link>
+            ))}
             <SocialLinks />
           </div>
         </div>
@@ -56,11 +61,11 @@ function Header() {
       <div className={styles.container}>
         {isMobile ? (
           <div id="mobile-nav" className={styles.mobile_navbar}>
-            <MobileNav />
+            <MobileNav translate={translate} />
           </div>
         ) : (
           <div id="nav" className={styles.navbar}>
-            <Navbar />
+            <Navbar translate={translate} />
           </div>
         )}
         <Link href="/" className={styles.link}>
@@ -79,7 +84,7 @@ function Header() {
               id="scroll-nav"
               className={`${styles.mobile_navbar} ${styles.scroll_navbar}`}
             >
-              <MobileNav />
+              <MobileNav translate={translate} />
             </div>
           )}
           <a className={styles.backup_btn + ' ' + 'btn btn-icon'} href="#top">

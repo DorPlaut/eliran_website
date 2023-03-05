@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-function Navbar() {
+function Navbar({ translate }) {
   // handle click
   const handleClick = (url) => {
     location.href = url;
@@ -10,7 +10,7 @@ function Navbar() {
     <ul>
       <li>
         <Link href="/contact" passHref legacyBehavior>
-          <button className="text-btn btn">צור קשר</button>
+          <button className="text-btn btn">{translate('צור קשר')}</button>
         </Link>
       </li>
       {/* <li>
@@ -20,22 +20,22 @@ function Navbar() {
       </li> */}
       <li>
         <Link href="/articles" passHref legacyBehavior>
-          <button className="text-btn btn">כתבות</button>
+          <button className="text-btn btn">{translate('כתבות')}</button>
         </Link>
       </li>
       <li>
         <Link href="/expertise" passHref legacyBehavior>
-          <button className="text-btn btn">תחומי התמחות</button>
+          <button className="text-btn btn">{translate('תחומי התמחות')}</button>
         </Link>
       </li>
       <li>
         <Link href="/about" passHref legacyBehavior>
-          <button className="text-btn btn">אודות</button>
+          <button className="text-btn btn">{translate('אודות')}</button>
         </Link>
       </li>
       <li>
         <Link href="/" passHref legacyBehavior>
-          <button className="text-btn btn">ראשי</button>
+          <button className="text-btn btn">{translate('ראשי')}</button>
         </Link>
       </li>
     </ul>

@@ -12,13 +12,21 @@ import { useMobileContext } from '@/context/mobile';
 import { usePostsContext } from '@/context/posts';
 import { useEffect, useState } from 'react';
 
+// localezation
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 export default function Home() {
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [posts, setPosts] = usePostsContext();
   const [selectedPosts, setSelected] = useState();
   const [aboutPage, setAboutPage] = useState();
-
+  // localezation
+  const { locale = 'he', locales, push } = useRouter();
+  const { t: translate } = useTranslation('home');
   // flitersd unwonted posts
   useEffect(() => {
     if (posts) {
@@ -44,7 +52,7 @@ export default function Home() {
       </Head>
       <main className="main">
         <header className="header" id="top">
-          <Header />
+          <Header translate={translate} locales={locales} />
         </header>
         {selectedPosts && aboutPage ? (
           <>
@@ -59,9 +67,18 @@ export default function Home() {
           </section>
         )}
         <footer>
-          <Footer />
+          <Footer translate={translate} />
         </footer>
       </main>
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      // Will be passed to the page component as props
+    },
+  };
 }

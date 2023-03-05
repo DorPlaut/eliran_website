@@ -7,12 +7,20 @@ import ContactForm from '@/components/ContactForm';
 import MiniInfo from '@/components/MiniInfo';
 // style
 import styles from '@/styles/Contact.module.css';
+// localezation
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 function Contact() {
+  // localezation
+  const { locale = 'he', locales, push } = useRouter();
+  const { t: translate } = useTranslation('home');
   return (
     <main className="main">
       <header className="header" id="top">
-        <Header />
+        <Header translate={translate} locales={locales} />
       </header>
       <div className={styles.container}>
         <h1>צור קשר</h1>
@@ -34,10 +42,19 @@ function Contact() {
         ></iframe>
       </section>
       <footer>
-        <Footer />
+        <Footer translate={translate} />
       </footer>
     </main>
   );
 }
 
 export default Contact;
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      // Will be passed to the page component as props
+    },
+  };
+}

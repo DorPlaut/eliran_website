@@ -4,8 +4,9 @@ import { MobileContextProvider } from '@/context/mobile';
 import { PostsContextProvider } from '@/context/posts';
 import { UserContextProvider } from '@/context/user';
 import { SessionProvider } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
 
-export default function App({ Component, pageProps, session }) {
+function App({ Component, pageProps, session }) {
   return (
     <SessionProvider session={session}>
       <MobileContextProvider>
@@ -18,3 +19,5 @@ export default function App({ Component, pageProps, session }) {
     </SessionProvider>
   );
 }
+
+export default appWithTranslation(App);
