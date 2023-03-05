@@ -56,10 +56,10 @@ export default function Home() {
         </header>
         {selectedPosts && aboutPage ? (
           <>
-            <Hero aboutPage={aboutPage} />
-            <ShortPost flipped post={selectedPosts[0]} />
+            <Hero aboutPage={aboutPage} translate={translate} />
+            <ShortPost flipped post={selectedPosts[0]} translate={translate} />
             <ServicesIcons />
-            <ShortPost flipped post={selectedPosts[0]} />
+            <ShortPost flipped post={selectedPosts[0]} translate={translate} />
           </>
         ) : (
           <section>

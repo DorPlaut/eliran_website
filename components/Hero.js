@@ -11,6 +11,7 @@ import styles from '@/styles/Hero.module.css';
 
 function Hero({ ...props }) {
   const { _id, title, desc, content, img } = props.aboutPage[0];
+  const translate = props.translate;
   const limited = content.substring(0, 800) + '...';
   return (
     <div
@@ -23,16 +24,20 @@ function Hero({ ...props }) {
     >
       <>
         <div className={styles.about}>
-          <h1>{title}</h1>
-          <h2>{desc}</h2>
+          <h1>{translate(title)}</h1>
+          <h2>{translate(desc)}</h2>
           {props.full ? parse(content) : parse(limited)}
           {!props.full && (
             <div className={styles.btn_container}>
               <Link href="/about" passHref legacyBehavior>
-                <button className="btn-color btn">קרא עוד</button>
+                <button className="btn-color btn">
+                  {translate('קרא עוד')}
+                </button>
               </Link>
               <Link href="/contact" passHref legacyBehavior>
-                <button className="btn-color btn">צור קשר</button>
+                <button className="btn-color btn">
+                  {translate('צור קשר')}
+                </button>
               </Link>
             </div>
           )}

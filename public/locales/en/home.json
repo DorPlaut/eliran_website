@@ -1,8 +1,16 @@
 {
-  "ראשי": "main",
-  "שלום": "hello",
-  "אודות": "about",
-  "תחומי התמחות": "expertise",
+  "ראשי": "Main",
+  "שלום": "Hello",
+  "אודות": "About",
+  "תחומי התמחות": "Expertise",
   "כתבות": "Articles",
-  "צור קשר": "contact"
+  "צור קשר": "Contact",
+  "ראשון עד חמישי": "Sunday to Thursday",
+  "שישי": "Friday",
+  "שבת": "Saturday",
+  "סגור": "closed",
+  "אלירן בללי": "Eliran Balely",
+  "עורך דין": "Lawyer",
+  "הצהרת נגישות": "Accessibility statement",
+  "קרא עוד": "...Read more"
 }

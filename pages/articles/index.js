@@ -39,6 +39,7 @@ function Articles() {
                 <ShortPost
                   flipped={index % 2 == 0 ? true : false}
                   post={post}
+                  translate={translate}
                 />
               </section>
             );

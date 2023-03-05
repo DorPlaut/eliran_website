@@ -48,11 +48,13 @@ function Header({ translate, locales }) {
       <div className={styles.container}>
         <div className={styles.filler_left}>
           <div className={styles.social}>
-            {locales.map((l, i) => (
-              <Link href="/" locale={l} key={i} className="btn btn-color">
-                {l}
-              </Link>
-            ))}
+            <div className={styles.lang}>
+              {locales.map((l, i) => (
+                <Link href="/" locale={l} key={i} className="btn btn-color">
+                  {l}
+                </Link>
+              ))}
+            </div>
             <SocialLinks />
           </div>
         </div>

@@ -45,7 +45,7 @@ function Footer({ translate }) {
               {translate('שישי')} : 08:00 - 12:00 <BiTimeFive />
             </li>
             <li>
-              {translate('שבת')} : {translate('סגורד')} <BiTimeFive />
+              {translate('שבת')} : {translate('סגור')} <BiTimeFive />
             </li>
           </ul>
         </div>

@@ -35,7 +35,7 @@ function About() {
 
       {aboutPage && (
         <>
-          <Hero full aboutPage={aboutPage} />
+          <Hero full aboutPage={aboutPage} translate={translate} />
         </>
       )}
       <section>

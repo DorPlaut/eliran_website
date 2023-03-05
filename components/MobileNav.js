@@ -4,7 +4,7 @@ import { CgMenuRound } from 'react-icons/cg';
 // style
 import styles from '@/styles/Header.module.css';
 
-function MobileNav() {
+function MobileNav({ translate }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div id="" className={isOpen ? styles.nav_container : ''}>
@@ -16,7 +16,7 @@ function MobileNav() {
       >
         <CgMenuRound />
       </button>
-      {isOpen ? <Navbar /> : ''}
+      {isOpen ? <Navbar translate={translate} /> : ''}
     </div>
   );
 }

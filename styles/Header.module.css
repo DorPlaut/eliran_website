@@ -121,6 +121,10 @@
   background: var(--primaryColor);
 }
 
+.lang {
+  height: 6rem;
+}
+
 /* tablet */
 @media screen and (max-width: 1200px) {
   .filler_left {

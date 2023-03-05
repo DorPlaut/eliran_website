@@ -10,6 +10,7 @@ import Link from 'next/link';
 function ShortPost(props) {
   // phrase props
   const { flipped } = props;
+  const { translate } = props;
   const { _id, title, desc, content, img } = props.post;
   const limited = content.substring(0, 400) + '...';
   return (
@@ -32,7 +33,7 @@ function ShortPost(props) {
           {parse(limited)}
           <div className={styles.btn}>
             <Link href={`/articles/${_id}`} passHref legacyBehavior>
-              <button className="btn-color btn">קרא עוד...</button>
+              <button className="btn-color btn">{translate('קרא עוד')}</button>
             </Link>
           </div>
         </div>
