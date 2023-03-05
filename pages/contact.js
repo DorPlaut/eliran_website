@@ -23,10 +23,10 @@ function Contact() {
         <Header translate={translate} locales={locales} />
       </header>
       <div className={styles.container}>
-        <h1>צור קשר</h1>
+        <h1>{translate()}</h1>
         <div className={styles.inner}>
-          <MiniInfo />
-          <ContactForm />
+          <MiniInfo translate={translate} />
+          <ContactForm translate={translate} />
         </div>
       </div>
       <section>
