@@ -28,11 +28,7 @@ function ContactForm() {
   const { t: translate } = useTranslation('home');
   // send email
   const sendEmail = (e) => {
-    console.log(form.current);
-
     e.preventDefault();
-    console.log(name, phone, email, message);
-    console.log(form.current);
     emailjs
       .sendForm(
         'service_4gteh89',
@@ -42,17 +38,14 @@ function ContactForm() {
       )
       .then(
         (result) => {
-          console.log(result);
           showAlert('הודעה נשלחה בהצלחה');
           setName('');
           setEmail('');
           setPhone('');
           setMessage('');
-          // alert('Message sent successfully');
         },
         (error) => {
           console.log(error.text);
-          // alert('Error. please go back');
         }
       );
   };
