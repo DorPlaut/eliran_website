@@ -19,7 +19,10 @@ function ContactForm() {
   // send email
   const sendEmail = (e) => {
     console.log(form.current);
+
     e.preventDefault();
+    console.log(name, phone, email, message);
+    console.log(form.current);
     emailjs
       .sendForm(
         'service_4gteh89',
@@ -29,6 +32,8 @@ function ContactForm() {
       )
       .then(
         (result) => {
+          console.log(result);
+
           setName('');
           setEmail('');
           setPhone('');
@@ -44,33 +49,37 @@ function ContactForm() {
   return (
     <>
       <form ref={form} onSubmit={sendEmail} className={styles.form}>
-        <span>{translate('שם')}</span>
+        <label for="from_name">{translate('שם')}</label>
         <input
           type="text"
-          name="user_name"
+          name="from_name"
+          id="from_name"
           value={name}
           onChange={(event) => setName(event.target.value)}
           required
         />
-        <span>{translate('טלפון')}</span>
+        <label for="user_phone">{translate('טלפון')}</label>
         <input
           type="phone"
           name="user_phone"
+          id="user_phone"
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
           required
         />
-        <span>{translate('אימייל')}</span>
+        <label for="user_email">{translate('אימייל')}</label>
         <input
           type="email"
           name="user_email"
+          id="user_email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           required
         />
-        <span>{translate('איך אוכל לעזור לך')}</span>
+        <label for="message">{translate('איך אוכל לעזור לך')}</label>
         <textarea
-          name="massage"
+          name="message"
+          id="message"
           rows="7"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
