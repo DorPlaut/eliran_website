@@ -23,7 +23,7 @@
 .form ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 .form li {
@@ -32,9 +32,16 @@
   align-items: center;
   margin: 0.5rem;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .form input,
 .form textarea {
-  margin: 0.2rem;
+  margin: 0.3rem;
   padding: 0.3rem;
   width: 20rem;
   background: var(--backgroundColor);
@@ -53,4 +60,13 @@
 
 .form button {
   width: 20rem;
+}
+.form span {
+  margin-top: 0.4rem;
+}
+
+@media screen and (max-width: 800px) {
+  .inner {
+    flex-direction: column-reverse;
+  }
 }
