@@ -9,11 +9,21 @@ import emailjs from '@emailjs/browser';
 import { useTranslation } from 'next-i18next';
 
 function ContactForm() {
+  // handle alerts
+  const showAlert = (msg) => {
+    setAlert(msg);
+    setTimeout(() => {
+      setAlert();
+    }, 2000);
+  };
+
   const form = useRef();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [alert, setAlert] = useState();
+
   // localization
   const { t: translate } = useTranslation('home');
   // send email
@@ -33,7 +43,7 @@ function ContactForm() {
       .then(
         (result) => {
           console.log(result);
-
+          showAlert('הודעה נשלחה בהצלחה');
           setName('');
           setEmail('');
           setPhone('');
@@ -87,6 +97,7 @@ function ContactForm() {
         <button className="btn btn-color" type="submit">
           {translate('שלח')}
         </button>
+        {alert && <h3 className={styles.alert}>{alert}</h3>}
       </form>
     </>
   );

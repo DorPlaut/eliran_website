@@ -25,7 +25,7 @@ function Dashbord() {
     setAlert(msg);
     setTimeout(() => {
       setAlert();
-    }, 1000);
+    }, 2000);
   };
   // handlle user
   const handleUser = async () => {
