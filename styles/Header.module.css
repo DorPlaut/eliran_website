@@ -36,9 +36,9 @@
 }
 .logo {
   height: 10rem;
-  padding: 1.5rem;
+  padding: 0.3rem;
   z-index: 1;
-  filter: drop-shadow(2px 2px 0px var(--backgroundColor));
+  /* filter: drop-shadow(2px 2px 0px var(--backgroundColor)); */
 }
 
 .navbar {

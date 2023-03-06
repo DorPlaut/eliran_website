@@ -10,10 +10,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 
 function ShowFullPost() {
-    // localezation
+  // localezation
   const { locale = 'he', locales, push } = useRouter();
   const { t: translate } = useTranslation('home');
-  // 
+  //
   const router = useRouter();
   const postId = router.query.id;
   const [posts, setPosts] = usePostsContext();
@@ -44,7 +44,6 @@ function ShowFullPost() {
 
 export default ShowFullPost;
 
-
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -63,6 +62,5 @@ export async function getStaticPaths() {
       { params: { id: '64002446583bd642073dce8b' } },
     ],
     fallback: true,
-  }
+  };
 }
-
