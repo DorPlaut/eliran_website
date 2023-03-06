@@ -6,6 +6,7 @@ import SocialLinks from './SocialLinks';
 import MobileNav from './MobileNav';
 import { RxDoubleArrowUp } from 'react-icons/rx';
 import Link from 'next/link';
+import LangNav from './LangNav';
 
 // states
 import { useMobileContext } from '@/context/mobile';
@@ -44,59 +45,57 @@ function Header({ translate, locales }) {
   });
 
   return (
-    <div className={styles.lines}>
-      <div className={styles.container}>
-        <div className={styles.filler_left}>
-          <div className={styles.social}>
-            <div className={styles.lang}>
-              {locales.map((l, i) => (
-                <Link href="/" locale={l} key={i} className="btn btn-color">
-                  {l}
-                </Link>
-              ))}
+    <>
+      <div className={styles.lines}>
+        <div className={styles.container}>
+          <div className={styles.filler_left}>
+            <div className={styles.social}>
+              <SocialLinks />
             </div>
-            <SocialLinks />
           </div>
+          <LinesSvg className={`${styles.left} ${styles.svg}`} />
         </div>
-        <LinesSvg className={`${styles.left} ${styles.svg}`} />
-      </div>
-      <div className={styles.container}>
-        {isMobile ? (
-          <div id="mobile-nav" className={styles.mobile_navbar}>
-            <MobileNav translate={translate} />
-          </div>
-        ) : (
-          <div id="nav" className={styles.navbar}>
-            <Navbar translate={translate} />
-          </div>
-        )}
-        <Link href="/" className={styles.link}>
-          <Logo className={styles.logo} />
-        </Link>
-
-        <div className={styles.filler_right}></div>
-        <LinesSvg className={`${styles.right} ${styles.svg}`} />
-      </div>
-      {isVisible ? (
-        <>
+        <div className={styles.container}>
           {isMobile ? (
-            ''
-          ) : (
-            <div
-              id="scroll-nav"
-              className={`${styles.mobile_navbar} ${styles.scroll_navbar}`}
-            >
+            <div id="mobile-nav" className={styles.mobile_navbar}>
               <MobileNav translate={translate} />
             </div>
+          ) : (
+            <div id="nav" className={styles.navbar}>
+              <Navbar translate={translate} />
+            </div>
           )}
-          <a className={styles.backup_btn + ' ' + 'btn btn-icon'} href="#top">
-            <RxDoubleArrowUp />
-          </a>
-        </>
-      ) : (
-        ''
-      )}
-    </div>
+          <Link href="/" className={styles.link}>
+            <Logo className={styles.logo} />
+          </Link>
+
+          <div className={styles.filler_right}></div>
+          <LinesSvg className={`${styles.right} ${styles.svg}`} />
+        </div>
+        {isVisible ? (
+          <>
+            {isMobile ? (
+              ''
+            ) : (
+              <div
+                id="scroll-nav"
+                className={`${styles.mobile_navbar} ${styles.scroll_navbar}`}
+              >
+                <MobileNav translate={translate} />
+              </div>
+            )}
+            <a className={styles.backup_btn + ' ' + 'btn btn-icon'} href="#top">
+              <RxDoubleArrowUp />
+            </a>
+          </>
+        ) : (
+          ''
+        )}
+      </div>
+      <div className={styles.lang}>
+        <LangNav locales={locales} />
+      </div>
+    </>
   );
 }
 
