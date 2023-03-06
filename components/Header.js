@@ -15,7 +15,12 @@ import { usePostsContext } from '@/context/posts';
 // style
 import styles from '@/styles/Header.module.css';
 
-function Header({ translate, locales }) {
+// localization
+import { useTranslation } from 'next-i18next';
+
+function Header({ locales }) {
+  // localization
+  const { t: translate } = useTranslation('home');
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [isVisible, setIsVisible] = useState(false);
@@ -58,11 +63,11 @@ function Header({ translate, locales }) {
         <div className={styles.container}>
           {isMobile ? (
             <div id="mobile-nav" className={styles.mobile_navbar}>
-              <MobileNav translate={translate} />
+              <MobileNav locales={locales} />
             </div>
           ) : (
             <div id="nav" className={styles.navbar}>
-              <Navbar translate={translate} />
+              <Navbar />
             </div>
           )}
           <Link href="/" className={styles.link}>
@@ -81,7 +86,7 @@ function Header({ translate, locales }) {
                 id="scroll-nav"
                 className={`${styles.mobile_navbar} ${styles.scroll_navbar}`}
               >
-                <MobileNav translate={translate} />
+                <MobileNav locales={locales} />
               </div>
             )}
             <a className={styles.backup_btn + ' ' + 'btn btn-icon'} href="#top">

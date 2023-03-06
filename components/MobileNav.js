@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import { CgMenuRound } from 'react-icons/cg';
+import LangNav from './LangNav';
 // style
 import styles from '@/styles/Header.module.css';
 
-function MobileNav({ translate }) {
+// localization
+import { useTranslation } from 'next-i18next';
+
+function MobileNav({ locales }) {
+  // localization
+  const { t: translate } = useTranslation('home');
+
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div id="" className={isOpen ? styles.nav_container : ''}>
@@ -16,7 +23,14 @@ function MobileNav({ translate }) {
       >
         <CgMenuRound />
       </button>
-      {isOpen ? <Navbar translate={translate} /> : ''}
+      {isOpen ? (
+        <>
+          <Navbar translate={translate} />
+          <LangNav locales={locales} />
+        </>
+      ) : (
+        ''
+      )}
     </div>
   );
 }

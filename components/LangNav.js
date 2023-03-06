@@ -41,7 +41,14 @@ function LangNav({ locales }) {
                 opacity: menuOpacity,
               }}
             >
-              <Link href={path} locale={l} className="btn btn-color">
+              <Link
+                href={path}
+                locale={l}
+                className="btn btn-color"
+                onClick={() => {
+                  setMenuPosition(2), setMenuOpacity(0);
+                }}
+              >
                 {getLanguageName(l)}
               </Link>
             </li>

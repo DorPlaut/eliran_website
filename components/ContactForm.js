@@ -3,8 +3,12 @@ import React from 'react';
 import styles from '@/styles/Contact.module.css';
 
 import { AiOutlineMessage } from 'react-icons/ai';
+// localization
+import { useTranslation } from 'next-i18next';
 
-function ContactForm({ translate }) {
+function ContactForm() {
+  // localization
+  const { t: translate } = useTranslation('home');
   return (
     <>
       <form action="" className={styles.form}>

@@ -5,9 +5,13 @@ import Navbar from './Navbar';
 import { BiTimeFive, BiPhone, BiMap, BiEnvelope } from 'react-icons/bi';
 import Link from 'next/link';
 import { useUserContext } from '@/context/user';
+// localization
+import { useTranslation } from 'next-i18next';
 
-function Footer({ translate }) {
+function Footer() {
   const [user, setUser] = useUserContext();
+  // localization
+  const { t: translate } = useTranslation('home');
 
   return (
     <div className={styles.container}>
@@ -22,7 +26,7 @@ function Footer({ translate }) {
                 <BiPhone />
               </li>
               <li>
-                {user.address}
+                {translate(user.address)}
                 <BiMap />
               </li>
               <li>

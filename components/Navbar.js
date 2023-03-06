@@ -1,7 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 
-function Navbar({ translate }) {
+// localization
+import { useTranslation } from 'next-i18next';
+
+function Navbar() {
+  // localization
+  const { t: translate } = useTranslation('home');
   // handle click
   const handleClick = (url) => {
     location.href = url;
