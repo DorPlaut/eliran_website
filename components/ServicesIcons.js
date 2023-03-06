@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from '@/styles/HomeContact.module.css';
 import { FaRegIdCard, FaBalanceScale, FaPeopleArrows } from 'react-icons/fa';
+import SocialLinks from './SocialLinks';
+
+// localization
+import { useTranslation } from 'next-i18next';
 
 function ServicesIcons() {
+  // localization
+  const { t: translate } = useTranslation('home');
   return (
     <div className={styles.container}>
       {/* Email Form. */}
@@ -46,6 +52,10 @@ function ServicesIcons() {
             <p>תיאור השירות</p>
           </li>
         </ul>
+      </div>
+      <div className={styles.links}>
+        <SocialLinks onlyWhatsapp />
+        <h2> - {translate('לייעוץ משפטי ראשוני ללא התחייבות')}</h2>
       </div>
     </div>
   );

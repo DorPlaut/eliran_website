@@ -9,6 +9,9 @@
   color: var(--backgroundColor);
   width: 100%;
 }
+.container a {
+  font-size: 3rem;
+}
 .form_container {
   display: flex;
   flex-direction: row-reverse;
@@ -60,6 +63,11 @@
 
 .btn {
   padding-top: 1rem;
+}
+.links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* media quarrys */

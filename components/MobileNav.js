@@ -26,6 +26,8 @@ function MobileNav({ locales }) {
       {isOpen ? (
         <>
           <Navbar translate={translate} />
+          <br />
+          <br />
           <LangNav locales={locales} />
         </>
       ) : (

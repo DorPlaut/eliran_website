@@ -3,7 +3,7 @@ import { BsWhatsapp, BsFacebook, BsEnvelopeFill } from 'react-icons/bs';
 import Link from 'next/link';
 import { useUserContext } from '@/context/user';
 
-function SocialLinks() {
+function SocialLinks({ onlyWhatsapp }) {
   const [user, setUser] = useUserContext();
   const [whatsappLink, setWhatsappLink] = useState('');
 
@@ -28,20 +28,25 @@ function SocialLinks() {
           <a href={whatsappLink} target="_blank" className="btn btn-icon">
             <BsWhatsapp />
           </a>
-          <a
-            href="https://www.facebook.com/eliranbalely/"
-            target="_blank"
-            className="btn btn-icon"
-          >
-            <BsFacebook />
-          </a>
-          <a
-            href={`mailto:${user.email}`}
-            target="_blank"
-            className="btn btn-icon"
-          >
-            <BsEnvelopeFill />
-          </a>
+          {!onlyWhatsapp && (
+            <>
+              {' '}
+              <a
+                href="https://www.facebook.com/eliranbalely/"
+                target="_blank"
+                className="btn btn-icon"
+              >
+                <BsFacebook />
+              </a>
+              <a
+                href={`mailto:${user.email}`}
+                target="_blank"
+                className="btn btn-icon"
+              >
+                <BsEnvelopeFill />
+              </a>
+            </>
+          )}
         </div>
       )}
     </>
