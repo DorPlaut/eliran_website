@@ -34,6 +34,7 @@ function SocialLinks({ onlyWhatsapp }) {
               <a
                 href="https://www.facebook.com/eliranbalely/"
                 target="_blank"
+                rel="noreferrer"
                 className="btn btn-icon"
               >
                 <BsFacebook />
@@ -41,6 +42,7 @@ function SocialLinks({ onlyWhatsapp }) {
               <a
                 href={`mailto:${user.email}`}
                 target="_blank"
+                rel="noreferrer"
                 className="btn btn-icon"
               >
                 <BsEnvelopeFill />
