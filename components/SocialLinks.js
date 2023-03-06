@@ -25,7 +25,12 @@ function SocialLinks({ onlyWhatsapp }) {
     <>
       {user && (
         <div>
-          <a href={whatsappLink} target="_blank" className="btn btn-icon">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-icon"
+          >
             <BsWhatsapp />
           </a>
           {!onlyWhatsapp && (
