@@ -14,13 +14,11 @@ function ImageUploader({ photos, setPhotos, text }) {
       },
       (error, result) => {
         if (result.event === 'success') {
-          // console.log(result);
-          // console.log(result.info.secure_url);
           setPhotos((photos) => [...photos, result.info.secure_url]);
         }
       }
     );
-  }, []);
+  }, [photos]);
   return (
     <>
       {' '}

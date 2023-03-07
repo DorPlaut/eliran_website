@@ -17,7 +17,7 @@ function EditPost({ showAlert, setPage, postId }) {
         setPost(post);
       }
     });
-  }, []);
+  }, [posts]);
   useEffect(() => {
     if (postToEdit) {
       setTitle(postToEdit.title);

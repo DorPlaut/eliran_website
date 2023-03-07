@@ -10,9 +10,12 @@ import DashPosts from '@/components/DashPosts';
 import DashPages from '@/components/DashPages';
 import EditPost from '@/components/EditPost';
 import Link from 'next/link';
+import { usePostsContext } from '@/context/posts';
 
 function Dashbord() {
   // states
+  const [posts, setPosts, updatePosts] = usePostsContext();
+
   const [user, setUser] = useState('');
   const [page, setPage] = useState('dash');
   const [alert, setAlert] = useState();
@@ -25,6 +28,7 @@ function Dashbord() {
   const showAlert = (msg) => {
     setAlert(msg);
     setTimeout(() => {
+      updatePosts();
       setAlert();
     }, 2000);
   };
@@ -49,7 +53,7 @@ function Dashbord() {
     if (session) {
       handleUser();
     }
-  }, [update]);
+  }, [update, session]);
   useEffect(() => {
     updateUser();
   }, [session]);

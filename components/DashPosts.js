@@ -19,7 +19,7 @@ function DashPosts({ showAlert, setPage, setPostId }) {
         })
       );
     }
-  }, []);
+  }, [posts, selectedPosts]);
 
   //   delete post
   const deletePost = async (id) => {
