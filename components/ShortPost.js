@@ -6,11 +6,12 @@ import LinesSvg from '@/public/lines.svg';
 // libreries
 import parse from 'html-react-parser';
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 function ShortPost(props) {
+  const { t } = useTranslation('home');
   // phrase props
   const { flipped } = props;
-  const { translate } = props;
   const { _id, title, desc, content, img } = props.post;
   const limited = content.substring(0, 400) + '...';
   return (
@@ -33,7 +34,7 @@ function ShortPost(props) {
           {parse(limited)}
           <div className={styles.btn}>
             <Link href={`/articles/${_id}`} passHref legacyBehavior>
-              <button className="btn-color btn">{translate('קרא עוד')}</button>
+              <button className="btn-color btn">{t('קרא עוד')}</button>
             </Link>
           </div>
         </div>

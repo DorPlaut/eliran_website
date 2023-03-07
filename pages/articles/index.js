@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { usePostsContext } from '@/context/posts';
@@ -8,13 +9,14 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import styles from '@/styles/Articles.module.css';
 
 function Articles() {
   const [posts, setPosts] = usePostsContext();
   const [selectedPosts, setSelectedPosts] = useState();
   // localization
   const { locale = 'he', locales, push } = useRouter();
-  const { t: translate } = useTranslation('home');
+  const { t } = useTranslation('home');
 
   // filter unwanted posts
   useEffect(() => {
@@ -28,31 +30,46 @@ function Articles() {
   }, [posts]);
 
   return (
-    <main className="main">
-      <header className="header" id="top">
-        <Header translate={translate} locales={locales} />
-      </header>
+    <>
+      <Head>
+        <title>{t('עורך דין אלירן בללי')}</title>
+        <meta
+          name="description"
+          content={t(
+            ' עורך דין אלירן בללי . עו"ד העוסק במעמד ושהייה בארץ, ייצוג בכל הערכאות ומול כל הגופים הרלוונטים'
+          )}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.svg" />
+      </Head>
 
-      <section aria-labelledby="articles-heading">
-        <h1 id="articles-heading">{translate('articles')}</h1>
-        {selectedPosts &&
-          selectedPosts.map((post, index) => {
-            return (
-              <section key={index}>
-                <ShortPost
-                  flipped={index % 2 === 0 ? true : false}
-                  post={post}
-                  translate={translate}
-                />
-              </section>
-            );
-          })}
-      </section>
+      <main className="main">
+        <header className="header" id="top">
+          <Header locales={locales} />
+        </header>
 
-      <footer>
-        <Footer translate={translate} />
-      </footer>
-    </main>
+        <section aria-labelledby="articles-heading">
+          <div className={styles.heading}>
+            <h1 id="articles-heading">{t('כתבות')}</h1>
+          </div>
+          {selectedPosts &&
+            selectedPosts.map((post, index) => {
+              return (
+                <section key={index}>
+                  <ShortPost
+                    flipped={index % 2 === 0 ? true : false}
+                    post={post}
+                  />
+                </section>
+              );
+            })}
+        </section>
+
+        <footer>
+          <Footer />
+        </footer>
+      </main>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -17,7 +18,7 @@ export default function ExpertisePage() {
 
   // Localization
   const { locale = 'he', locales, push } = useRouter();
-  const { t: translate } = useTranslation('home');
+  const { t } = useTranslation('home');
 
   // Filter posts to get the post with type 'תחומי_התמחות'
   useEffect(() => {
@@ -28,19 +29,32 @@ export default function ExpertisePage() {
   }, [posts]);
 
   return (
-    <main className="main">
-      <header className="header" id="top">
-        <Header translate={translate} locales={locales} />
-      </header>
+    <>
+      <Head>
+        <title>{t('עורך דין אלירן בללי')}</title>
+        <meta
+          name="description"
+          content={t(
+            ' עורך דין אלירן בללי . עו"ד העוסק במעמד ושהייה בארץ, ייצוג בכל הערכאות ומול כל הגופים הרלוונטים'
+          )}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.svg" />
+      </Head>
+      <main className="main">
+        <header className="header" id="top">
+          <Header locales={locales} />
+        </header>
 
-      <ServicesIcons />
+        <ServicesIcons text={t('תחומי התמחות')} />
 
-      {expertisePost && <FullPost post={expertisePost} />}
+        {expertisePost && <FullPost post={expertisePost} />}
 
-      <footer aria-label="Footer">
-        <Footer translate={translate} />
-      </footer>
-    </main>
+        <footer aria-label="Footer">
+          <Footer />
+        </footer>
+      </main>
+    </>
   );
 }
 

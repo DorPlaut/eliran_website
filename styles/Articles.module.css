@@ -1,0 +1,11 @@
+.heading {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('../public/hero-backgroung.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 2rem;
+  color: var(--backgroundColor);
+  font-size: 1.3rem;
+}

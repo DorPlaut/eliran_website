@@ -14,8 +14,7 @@ import { useTranslation } from 'next-i18next';
 function Hero({ ...props }) {
   // localization
   const { t: translate } = useTranslation('home');
-
-  const { _id, title, desc, content, img } = props.aboutPage[0];
+  const { _id, title, desc, content, img } = props.aboutPage;
   const limited = content.substring(0, 800) + '...';
   return (
     <div

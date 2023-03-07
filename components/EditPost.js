@@ -96,9 +96,22 @@ function EditPost({ showAlert, setPage, postId }) {
             <div>
               {photos.length > 0 && (
                 <>
-                  {photos.map((i) => (
-                    <img src={i} alt="" key={i} />
-                  ))}
+                  <div className={styles.post_container}>
+                    {photos.map((i) => (
+                      <div className={styles.single_post}>
+                        <img src={i} alt="" key={i} />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setPhotos(photos.filter((img) => img != i));
+                          }}
+                          className="btn btn-color"
+                        >
+                          מחק
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                   <br />
                 </>
               )}

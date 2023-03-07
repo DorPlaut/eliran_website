@@ -6,11 +6,12 @@ import SocialLinks from './SocialLinks';
 // localization
 import { useTranslation } from 'next-i18next';
 
-function ServicesIcons() {
+function ServicesIcons({ text }) {
   // localization
   const { t: translate } = useTranslation('home');
   return (
     <div className={styles.container}>
+      {text && <h1 id="services-heading">{text}</h1>}
       {/* Email Form. */}
       {/* <div className={styles.form_container}>
         <h4>ליעוץ ראשוני אנא מלאו פרטים ונחזור אליכם במהרה</h4>
