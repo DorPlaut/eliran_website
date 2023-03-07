@@ -98,8 +98,8 @@ function EditPost({ showAlert, setPage, postId }) {
                 <>
                   <div className={styles.post_container}>
                     {photos.map((i) => (
-                      <div className={styles.single_post}>
-                        <img src={i} alt="" key={i} />
+                      <div className={styles.single_post} key={i}>
+                        <img src={i} alt="" />
                         <button
                           type="button"
                           onClick={() => {
