@@ -24,10 +24,12 @@ function Header({ locales }) {
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [isVisible, setIsVisible] = useState(false);
+
   // handle menu position
   function handleScroll() {
     const menu = document.getElementById('mobile-nav');
     const scrollPosition = window.scrollY;
+
     // Change the position of the menu based on the scroll position
     if (scrollPosition > 80) {
       setIsVisible(true);
@@ -36,7 +38,7 @@ function Header({ locales }) {
       }
     } else {
       setIsVisible(false);
-      if (menu && isMobile == true) {
+      if (menu && isMobile === true) {
         menu.style.top = '10.2rem';
       }
     }
@@ -60,7 +62,9 @@ function Header({ locales }) {
           </div>
           <LinesSvg className={`${styles.left} ${styles.svg}`} />
         </div>
+
         <div className={styles.container}>
+          {/* Render the mobile navigation menu or the regular navigation menu based on the screen size */}
           {isMobile ? (
             <div id="mobile-nav" className={styles.mobile_navbar}>
               <MobileNav locales={locales} />
@@ -70,13 +74,16 @@ function Header({ locales }) {
               <Navbar />
             </div>
           )}
+
           <Link href="/" className={styles.link}>
-            <Logo className={styles.logo} />
+            <Logo className={styles.logo} alt={translate('logo')} />
           </Link>
 
           <div className={styles.filler_right}></div>
           <LinesSvg className={`${styles.right} ${styles.svg}`} />
         </div>
+
+        {/* Render a backup button when the user scrolls past a certain point on the page */}
         {isVisible ? (
           <>
             {isMobile ? (
@@ -89,7 +96,11 @@ function Header({ locales }) {
                 <MobileNav locales={locales} />
               </div>
             )}
-            <a className={styles.backup_btn + ' ' + 'btn btn-icon'} href="#top">
+            <a
+              className={styles.backup_btn + ' ' + 'btn btn-icon'}
+              href="#top"
+              aria-label={translate('back to top')}
+            >
               <RxDoubleArrowUp />
             </a>
           </>
@@ -97,6 +108,8 @@ function Header({ locales }) {
           ''
         )}
       </div>
+
+      {/* Render a language switcher */}
       <div className={styles.lang}>
         <LangNav locales={locales} />
       </div>
