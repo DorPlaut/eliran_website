@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -12,7 +13,7 @@ import Link from 'next/link';
 function ShowFullPost() {
   // localization
   const { locale = 'he', locales, push } = useRouter();
-  const { t: translate } = useTranslation('home');
+  const { t } = useTranslation('home');
 
   const router = useRouter();
   const postId = router.query.id;
@@ -30,15 +31,29 @@ function ShowFullPost() {
   }, [postId, posts]);
 
   return (
-    <main className="main">
-      <header className="header" id="top">
-        <Header translate={translate} locales={locales} />
-      </header>
-      <section>{post && <FullPost flipped post={post} />}</section>
-      <footer>
-        <Footer translate={translate} />
-      </footer>
-    </main>
+    <>
+      <Head>
+        <title>{t('עורך דין אלירן בללי')}</title>
+        <meta
+          name="description"
+          content={t(
+            ' עורך דין אלירן בללי . עו"ד העוסק במעמד ושהייה בארץ, ייצוג בכל הערכאות ומול כל הגופים הרלוונטים'
+          )}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className="main">
+        <header className="header" id="top">
+          <Header locales={locales} />
+        </header>
+        <section>{post && <FullPost flipped post={post} />}</section>
+        <footer>
+          <Footer />
+        </footer>
+      </main>
+    </>
   );
 }
 

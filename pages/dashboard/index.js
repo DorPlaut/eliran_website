@@ -64,7 +64,7 @@ function Dashbord() {
         <title>{'עורך דין אלירן בללי - מערכת לניהול האתר'}</title>
         <meta name="description" content={'עורך דין אלירן בללי'} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className={styles.page} dir="rtl">
