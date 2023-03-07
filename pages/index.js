@@ -66,7 +66,7 @@ export default function Home() {
             {/* use array destructuring to extract the first post */}
             <ShortPost flipped post={selectedPosts[0]} />
             <ServicesIcons />
-            <ShortPost flipped post={selectedPosts[0]} />
+            <ShortPost post={selectedPosts[1]} />
           </>
         ) : (
           <section>
