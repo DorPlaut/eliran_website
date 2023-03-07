@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+import Accecability from '@/components/Accecability';
 
 // components
 import Loader from '@/components/Loader';
@@ -19,6 +20,10 @@ import { useMobileContext } from '@/context/mobile';
 import { usePostsContext } from '@/context/posts';
 
 export default function Home() {
+  // start
+
+  // end
+
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [posts, setPosts] = usePostsContext();
@@ -57,6 +62,7 @@ export default function Home() {
         {selectedPosts && aboutPage ? (
           <>
             <Hero aboutPage={aboutPage[0]} />
+
             {/* use array destructuring to extract the first post */}
             <ShortPost flipped post={selectedPosts[0]} />
             <ServicesIcons />
