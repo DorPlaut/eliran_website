@@ -4,7 +4,6 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import { usePostsContext } from '@/context/posts';
 import FullPost from '@/components/FullPost';
-// localezation
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
@@ -12,18 +11,14 @@ import Link from 'next/link';
 
 function Accessibility() {
   const [posts, setPosts] = usePostsContext();
-  const [post, setPost] = useState();
-  // localezation
+  const [post, setPost] = useState(null);
   const { locale = 'he', locales, push } = useRouter();
   const { t: translate } = useTranslation('home');
 
   useEffect(() => {
     if (posts) {
-      posts.map((i) => {
-        if (i.type == 'הצהרת_נגישות') {
-          setPost(i);
-        }
-      });
+      const accessibilityPost = posts.find((p) => p.type === 'הצהרת_נגישות');
+      setPost(accessibilityPost);
     }
   }, [posts]);
 
@@ -46,7 +41,6 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common', 'home'])),
-      // Will be passed to the page component as props
     },
   };
 }

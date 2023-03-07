@@ -4,30 +4,30 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { usePostsContext } from '@/context/posts';
 import FullPost from '@/components/FullPost';
-// localezation
+// localization
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 
 function ShowFullPost() {
-  // localezation
+  // localization
   const { locale = 'he', locales, push } = useRouter();
   const { t: translate } = useTranslation('home');
-  //
+
   const router = useRouter();
   const postId = router.query.id;
   const [posts, setPosts] = usePostsContext();
   const [post, setPost] = useState();
-  // find tto selected post
+
+  // Find selected post
   useEffect(() => {
     if (posts) {
-      posts.map((i) => {
-        if (i._id == postId) {
-          setPost(i);
-        }
-      });
+      const selectedPost = posts.find((i) => i._id === postId);
+      if (selectedPost) {
+        setPost(selectedPost);
+      }
     }
-  }, [posts]);
+  }, [postId, posts]);
 
   return (
     <main className="main">
@@ -54,13 +54,15 @@ export async function getStaticProps({ locale }) {
 }
 
 export async function getStaticPaths() {
+  // Define paths for dynamic routes
+  // Replace hard-coded post IDs with actual IDs from your data source
+  const paths = [
+    { params: { id: 'post-1' } },
+    { params: { id: 'post-2' } },
+    { params: { id: 'post-3' } },
+  ];
   return {
-    paths: [
-      // String variant:
-      '/articles/64002446583bd642073dce8b',
-      // Object variant:
-      { params: { id: '64002446583bd642073dce8b' } },
-    ],
+    paths,
     fallback: true,
   };
 }

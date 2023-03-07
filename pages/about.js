@@ -4,42 +4,37 @@ import Footer from '@/components/Footer';
 import Section from '@/components/Section';
 import Hero from '@/components/Hero';
 import { usePostsContext } from '@/context/posts';
-// localezation
+// localization
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 function About() {
-  const [posts, setPosts] = usePostsContext();
-  const [aboutPage, setAboutPage] = useState();
-  // localezation
   const { locale = 'he', locales, push } = useRouter();
   const { t: translate } = useTranslation('home');
+  const [posts, setPosts] = usePostsContext();
+  const [aboutPage, setAboutPage] = useState();
 
-  // flitersd unwonted posts
+  // Filter unwanted posts
   useEffect(() => {
     if (posts) {
-      setAboutPage(
-        posts.filter((i) => {
-          return i.type == 'אודות';
-        })
-      );
+      const filteredPosts = posts.filter((post) => post.type === 'אודות');
+      setAboutPage(filteredPosts[0]);
     }
   }, [posts]);
+
   return (
     <main className="main">
       <header className="header" id="top">
         <Header translate={translate} locales={locales} />
       </header>
 
-      {aboutPage && (
-        <>
-          <Hero full aboutPage={aboutPage} translate={translate} />
-        </>
-      )}
+      {aboutPage && <Hero full aboutPage={aboutPage} translate={translate} />}
+
       <section>
         <iframe
+          title="Google Maps"
           width="100%"
           height="450"
           style={{}}
@@ -64,7 +59,6 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common', 'home'])),
-      // Will be passed to the page component as props
     },
   };
 }
