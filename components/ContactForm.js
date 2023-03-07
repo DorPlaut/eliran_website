@@ -52,7 +52,7 @@ function ContactForm() {
   return (
     <>
       <form ref={form} onSubmit={sendEmail} className={styles.form}>
-        <label for="from_name">{translate('שם')}</label>
+        <label htmlFor="from_name">{translate('שם')}</label>
         <input
           type="text"
           name="from_name"
@@ -61,7 +61,7 @@ function ContactForm() {
           onChange={(event) => setName(event.target.value)}
           required
         />
-        <label for="user_phone">{translate('טלפון')}</label>
+        <label htmlFor="user_phone">{translate('טלפון')}</label>
         <input
           type="phone"
           name="user_phone"
@@ -70,7 +70,7 @@ function ContactForm() {
           onChange={(event) => setPhone(event.target.value)}
           required
         />
-        <label for="user_email">{translate('אימייל')}</label>
+        <label htmlFor="user_email">{translate('אימייל')}</label>
         <input
           type="email"
           name="user_email"
@@ -79,7 +79,7 @@ function ContactForm() {
           onChange={(event) => setEmail(event.target.value)}
           required
         />
-        <label for="message">{translate('איך אוכל לעזור לך')}</label>
+        <label htmlFor="message">{translate('איך אוכל לעזור לך')}</label>
         <textarea
           name="message"
           id="message"

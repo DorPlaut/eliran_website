@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
 import parse from 'html-react-parser';
+import MiniInfo from './MiniInfo';
 
 // Localization
 import { useTranslation } from 'next-i18next';
@@ -42,15 +43,7 @@ function Hero({ aboutPage, full }) {
           )}
         </div>
         {full ? (
-          <div className={styles.mini_info_container}>
-            <Image
-              src={img[0]}
-              alt="Profile"
-              width={400}
-              height={370}
-              className={styles.mini_info_image}
-            />
-          </div>
+          <MiniInfo />
         ) : (
           <div className={styles.blob_container}>
             <Image
