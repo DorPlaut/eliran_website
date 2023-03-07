@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import Blob from '@/public/blob.svg';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
-import profilePic from '../public/profile-blob.png';
-import parse from 'html-react-parser';
 import Link from 'next/link';
-import MiniInfo from './MiniInfo';
+import parse from 'html-react-parser';
 
-// style
-import styles from '@/styles/Hero.module.css';
-// localization
+// Localization
 import { useTranslation } from 'next-i18next';
 
-function Hero({ ...props }) {
-  // localization
+// Styles
+import styles from '@/styles/Hero.module.css';
+
+function Hero({ aboutPage, full }) {
   const { t } = useTranslation('home');
-  const { _id, title, desc, content, img } = props.aboutPage;
+  const { _id, title, desc, content, img } = aboutPage;
+
   const limited = content.substring(0, 800) + '...';
+
   return (
     <div
       className={
-        props.full
+        full
           ? `${styles.hero} section ${styles.full}`
-          : `${styles.hero} section `
+          : `${styles.hero} section`
       }
       dir="rtl"
     >
@@ -29,23 +29,37 @@ function Hero({ ...props }) {
         <div className={styles.about}>
           <h1 id="about-heading">{t(title)}</h1>
           <h2>{t(desc)}</h2>
-          {props.full ? parse(content) : parse(limited)}
-          {!props.full && (
+          {full ? parse(content) : parse(limited)}
+          {!full && (
             <div className={styles.btn_container}>
-              <Link href="/about" passHref legacyBehavior>
+              <Link href="/about" passHref>
                 <button className="btn-color btn">{t('קרא עוד')}</button>
               </Link>
-              <Link href="/contact" passHref legacyBehavior>
+              <Link href="/contact" passHref>
                 <button className="btn-color btn">{t('צור קשר')}</button>
               </Link>
             </div>
           )}
         </div>
-        {props.full ? (
-          <MiniInfo img={img[0]} />
+        {full ? (
+          <div className={styles.mini_info_container}>
+            <Image
+              src={img[0]}
+              alt="Profile"
+              width={400}
+              height={370}
+              className={styles.mini_info_image}
+            />
+          </div>
         ) : (
           <div className={styles.blob_container}>
-            <img src={img[0]} alt="Profile" className={styles.blob} />
+            <Image
+              src={img[0]}
+              alt="Profile"
+              width={400}
+              height={370}
+              className={styles.blob}
+            />
           </div>
         )}
       </>
