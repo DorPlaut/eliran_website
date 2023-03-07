@@ -13,7 +13,7 @@ import { useTranslation } from 'next-i18next';
 
 function Hero({ ...props }) {
   // localization
-  const { t: translate } = useTranslation('home');
+  const { t } = useTranslation('home');
   const { _id, title, desc, content, img } = props.aboutPage;
   const limited = content.substring(0, 800) + '...';
   return (
@@ -27,20 +27,16 @@ function Hero({ ...props }) {
     >
       <>
         <div className={styles.about}>
-          <h1>{translate(title)}</h1>
-          <h2>{translate(desc)}</h2>
+          <h1 id="about-heading">{t(title)}</h1>
+          <h2>{t(desc)}</h2>
           {props.full ? parse(content) : parse(limited)}
           {!props.full && (
             <div className={styles.btn_container}>
               <Link href="/about" passHref legacyBehavior>
-                <button className="btn-color btn">
-                  {translate('קרא עוד')}
-                </button>
+                <button className="btn-color btn">{t('קרא עוד')}</button>
               </Link>
               <Link href="/contact" passHref legacyBehavior>
-                <button className="btn-color btn">
-                  {translate('צור קשר')}
-                </button>
+                <button className="btn-color btn">{t('צור קשר')}</button>
               </Link>
             </div>
           )}
