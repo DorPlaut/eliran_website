@@ -20,7 +20,7 @@ import { useTranslation } from 'next-i18next';
 
 function Header({ locales }) {
   // localization
-  const { t: translate } = useTranslation('home');
+  const { t } = useTranslation('home');
   // states
   const [isMobile, setIsMobile] = useMobileContext();
   const [isVisible, setIsVisible] = useState(false);
@@ -76,7 +76,7 @@ function Header({ locales }) {
           )}
 
           <Link href="/" className={styles.link}>
-            <Logo className={styles.logo} alt={translate('logo')} />
+            <Logo className={styles.logo} alt={t('logo')} />
           </Link>
 
           <div className={styles.filler_right}></div>
@@ -99,7 +99,7 @@ function Header({ locales }) {
             <a
               className={styles.backup_btn + ' ' + 'btn btn-icon'}
               href="#top"
-              aria-label={translate('back to top')}
+              aria-label={t('back to top')}
             >
               <RxDoubleArrowUp />
             </a>
