@@ -19,7 +19,7 @@ function DashPages({ showAlert, setPage, setPostId }) {
         })
       );
     }
-  }, [posts, selectedPosts]);
+  }, [posts]);
 
   return (
     <div className={styles.main}>

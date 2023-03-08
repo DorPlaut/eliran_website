@@ -26,7 +26,6 @@ export default async function handler(req, res) {
           update[key] = req.body[key];
         }
       }
-      console.log(update);
 
       const updateUser = await User.findByIdAndUpdate(id, update);
       console.log('update user');

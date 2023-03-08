@@ -7,8 +7,8 @@ import { usePostsContext } from '@/context/posts';
 
 function EditPost({ showAlert, setPage, postId }) {
   // testt
-  const [posts, setPosts, updatePosts] = usePostsContext();
-  const [postToEdit, setPost] = useState();
+  const [posts, setPosts, updatePosts] = usePostsContext('');
+  const [postToEdit, setPost] = useState('');
 
   // set post to edit
   useEffect(() => {
