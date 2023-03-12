@@ -1,9 +1,11 @@
-const moongose = require('mongoose');
-// const { options } = require('../routes/tasks');
+const mongoose = require('mongoose');
 
 const connectDB = async () => {
-  console.log('connectinng to DB..');
-  return moongose.connect(process.env.MONGO_URI, {});
+  if (mongoose.connection.readyState === 0) {
+    console.log('Connecting to MongoDB...');
+    await mongoose.connect(process.env.MONGO_URI, {});
+  } else {
+  }
 };
 
 module.exports = connectDB;
